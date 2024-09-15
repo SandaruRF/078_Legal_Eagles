@@ -35,6 +35,10 @@ const candidates = [
 ];
 
 const CandidateList = () => {
+    const handleScroll = () => {
+        window.location.href = "#topics";
+    };
+
     return (
         <div class="candidate-list">
             <Card
@@ -75,7 +79,12 @@ const CandidateList = () => {
                             ))}
                         </div>
                     </Card.Text>
-                    <Button variant="primary" size="lg">
+                    <Button
+                        variant="primary"
+                        size="lg"
+                        onClick={handleScroll}
+                        style={{ marginTop: "1rem", marginBottom: "1rem" }}
+                    >
                         Next Step
                     </Button>
                 </Card.Body>
