@@ -71,7 +71,26 @@ const Gallery = () => {
         }
     }, [checkedImages]);
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
+        const selectedFields = texts.filter((_, index) => checkedImages[index]);
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/endpoint', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ selectedFields }), 
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const data = await response.json();
+      console.log('Success:', data);
+    } catch (error) {
+      console.error('Error:', error);
+    }
         setIsButtonClicked(true);
 
         setTimeout(() => {
