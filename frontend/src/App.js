@@ -1,5 +1,7 @@
-import "./App.css";
+import CandidateList from "./comparator/CandidateList";
 
-function App() {}
+function App() {
+    return <CandidateList />;
+}
 
 export default App;
