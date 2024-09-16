@@ -1,5 +1,10 @@
-import "./App.css";
-
-function App() {}
+import Comparator from "./comparator/Comparator";
+function App() {
+    return (
+        <>
+            <Comparator />
+        </>
+    );
+}
 
 export default App;
