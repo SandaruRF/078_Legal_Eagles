@@ -19,6 +19,7 @@ const CandidateDiv = ({ id, candidateData, bgColor, fullName }) => {
                     style={{
                         width: "100%",
                         textAlign: "left",
+                        height: "100%",
                     }}
                     key={index}
                 >
