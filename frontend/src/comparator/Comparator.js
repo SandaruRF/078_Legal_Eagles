@@ -39,10 +39,17 @@ const Compare = () => {
     };
 
     const colorMap = {
-        anura: "#F28C8C", // Light Red
-        ranil: "#FFF08F", // Light Yellow
-        namal: "#D3A5D5", // Light Purple
-        sajith: "#B6E5A1", // Light Green
+        anura: "#C4094A",
+        ranil: "#0B7708",
+        namal: "#87171A",
+        sajith: "#FED431",
+    };
+
+    const FullName = {
+        anura: "Anura Kumara Dissanayake",
+        ranil: "Ranil Wickramasinghe",
+        namal: "Namal Rajapaksha",
+        sajith: "Sajith Premadasa",
     };
 
     const handleSubmit = async () => {
@@ -99,12 +106,10 @@ const Compare = () => {
                                 marginLeft: "5rem",
                                 marginTop: "3rem",
                             }}
+                            key={fieldIndex} // Add key here for the Card component
                         >
-                            <div
-                                key={fieldIndex}
-                                style={{ marginBottom: "20px" }}
-                            >
-                                <br></br>
+                            <div style={{ marginBottom: "20px" }}>
+                                <br />
                                 <Card.Title
                                     style={{
                                         fontSize: "1.7rem",
@@ -113,6 +118,7 @@ const Compare = () => {
                                 >
                                     {field}
                                 </Card.Title>
+                                <br />
                                 <div
                                     style={{
                                         display: "flex",
@@ -134,6 +140,9 @@ const Compare = () => {
                                                 bgColor={
                                                     colorMap[candidateName] ||
                                                     "#FFFFFF"
+                                                }
+                                                fullName={
+                                                    FullName[candidateName]
                                                 }
                                             />
                                         )

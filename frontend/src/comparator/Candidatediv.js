@@ -1,6 +1,7 @@
 import React from "react";
+import Card from "react-bootstrap/Card";
 
-const CandidateDiv = ({ id, candidateData, bgColor }) => {
+const CandidateDiv = ({ id, candidateData, bgColor, fullName }) => {
     return (
         <div
             style={{
@@ -8,17 +9,35 @@ const CandidateDiv = ({ id, candidateData, bgColor }) => {
                 padding: "10px",
                 backgroundColor: bgColor,
                 margin: "10px",
-                height: "200px",
+                height: "auto",
                 fontWeight: "bolder",
                 borderRadius: "5px",
             }}
         >
             {Object.entries(candidateData).map(([field, details], index) => (
-                <div
+                <Card
+                    style={{
+                        width: "100%",
+                        textAlign: "left",
+                    }}
                     key={index}
-                    dangerouslySetInnerHTML={{ __html: details }}
-                    style={{ marginBottom: "10px" }}
-                />
+                >
+                    <Card.Body>
+                        <Card.Title
+                            style={{ color: bgColor, fontSize: "1.5rem" }}
+                        >
+                            {fullName}
+                        </Card.Title>
+                        <hr />
+                        <Card.Text>
+                            <div
+                                key={index}
+                                dangerouslySetInnerHTML={{ __html: details }}
+                                style={{ marginBottom: "10px" }}
+                            />
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
             ))}
         </div>
     );

@@ -83,13 +83,14 @@ Answer the Question based only on the following context:
 
 Answer the question based on the above context: 
 {question}
-Don't mention something like 'based on the provided context' on the answer. Just give me the correct answer without mentioning anything.
+
+Don't mention something like 'based on the provided context' on the answer.
+Just give me the answer according to the given template.
 
 Answer template - 
-(use point form)
-give only two points (to display in a website give me a <ul> template)
+(use point form - max 6 points - give as html ul (text align left))
 
-topic - summary
+topic_of_the_point - mini_description
 
 Add all important context information provided.
 To get candidate name, use metadata provided.
