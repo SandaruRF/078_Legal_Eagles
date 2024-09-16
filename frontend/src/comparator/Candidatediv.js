@@ -30,7 +30,7 @@ const CandidateDiv = ({ id, candidateData, bgColor, fullName }) => {
                             {fullName}
                         </Card.Title>
                         <hr />
-                        <Card.Text>
+                        <Card.Text style={{ textAlign: "left" }}>
                             <div
                                 key={index}
                                 dangerouslySetInnerHTML={{ __html: details }}
