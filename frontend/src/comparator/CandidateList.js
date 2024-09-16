@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CardCandidate from "./CardCandidate";
 import akdImage from "../images/akd.jpeg";
 import rwImage from "../images/rw.jpg";
@@ -34,7 +34,8 @@ const candidates = [
     },
 ];
 
-const CandidateList = () => {
+const CandidateList = ({checkedCandidates, onCandidateClick}) => {
+
     const handleScroll = () => {
         window.location.href = "#topics";
     };
@@ -75,6 +76,8 @@ const CandidateList = () => {
                                     name={candidate.name}
                                     party={candidate.party}
                                     bgColor={candidate.bgColor}
+                                    isChecked={checkedCandidates[index]}
+                                    onClick={() => onCandidateClick(index)}
                                 />
                             ))}
                         </div>

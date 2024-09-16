@@ -6,6 +6,7 @@ from fastapi.responses import HTMLResponse
 
 class Selection(BaseModel):
     selectedFields: list[str]
+    selectedCandidates: list[str]
 
 
 app = FastAPI()
@@ -22,7 +23,7 @@ app.add_middleware(
 @app.post("/api/endpoint")
 async def receive_selection(selection: Selection):
     print("Received selection:", selection.selectedFields)
-    return {"message": "Selection received", "data": selection.selectedFields}
+    return {"message": "Selection received", "selectedFields": selection.selectedFields, "selectedCandidates":selection.selectedCandidates}
 
 @app.get("/")
 async def read_root():

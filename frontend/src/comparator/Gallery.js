@@ -17,8 +17,7 @@ import picture10 from "../images/social.jpeg";
 import picture11 from "../images/privategovernmentBussiness.jpeg";
 import picture12 from "../images/nature.jpeg";
 
-const Gallery = () => {
-    const [checkedImages, setCheckedImages] = useState(Array(11).fill(false));
+const Gallery = ({ checkedImages, onTopicChange, onSubmit }) => {
     const [isRadioSelected, setIsRadioSelected] = useState(false);
     const [isButtonClicked, setIsButtonClicked] = useState(false);
     const images = [
@@ -51,18 +50,17 @@ const Gallery = () => {
     ];
 
     const handleRadioChange = () => {
-        if (!isRadioSelected) {
-            setCheckedImages(Array(12).fill(true));
-        } else {
-            setCheckedImages(Array(12).fill(false));
-        }
+        const newCheckedImages = !isRadioSelected
+            ? Array(12).fill(true)
+            : Array(12).fill(false);
+        onTopicChange(newCheckedImages);
         setIsRadioSelected(!isRadioSelected);
     };
 
     const handleImageClick = (index) => {
         const newCheckedImages = [...checkedImages];
         newCheckedImages[index] = !newCheckedImages[index];
-        setCheckedImages(newCheckedImages);
+        onTopicChange(newCheckedImages);
     };
 
     useEffect(() => {
@@ -71,32 +69,6 @@ const Gallery = () => {
         }
     }, [checkedImages]);
 
-    const handleSubmit = async () => {
-        const selectedFields = texts.filter((_, index) => checkedImages[index]);
-    try {
-      const response = await fetch('http://127.0.0.1:8000/api/endpoint', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ selectedFields }), 
-      });
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      const data = await response.json();
-      console.log('Success:', data);
-    } catch (error) {
-      console.error('Error:', error);
-    }
-        setIsButtonClicked(true);
-
-        setTimeout(() => {
-            setIsButtonClicked(false);
-        }, 200);
-    };
     return (
         <>
             <Card
@@ -143,7 +115,7 @@ const Gallery = () => {
                     <br></br>
                     <div style={{ textAlign: "center" }}>
                         <Button
-                            onClick={handleSubmit}
+                            onClick={onSubmit}
                             variant="primary"
                             size="lg"
                         >

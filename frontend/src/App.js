@@ -1,11 +1,10 @@
-import CandidateList from "./comparator/CandidateList";
-import Gallery from './comparator/Gallery.js'
+import Comparator from "./comparator/Comparator";
 function App() {
     return (
         <>
-        <CandidateList />
-        <Gallery />
-    </>);
+            <Comparator />
+        </>
+    );
 }
 
 export default App;
