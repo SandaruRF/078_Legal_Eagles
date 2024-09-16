@@ -79,6 +79,7 @@ const Gallery = ({ checkedImages, onTopicChange, onSubmit }) => {
                     marginRight: "5rem",
                     marginLeft: "5rem",
                     marginTop: "3rem",
+                    marginBottom: "2rem",
                 }}
             >
                 <br></br>
@@ -114,11 +115,7 @@ const Gallery = ({ checkedImages, onTopicChange, onSubmit }) => {
                     <br></br>
                     <br></br>
                     <div style={{ textAlign: "center" }}>
-                        <Button
-                            onClick={onSubmit}
-                            variant="primary"
-                            size="lg"
-                        >
+                        <Button onClick={onSubmit} variant="primary" size="lg">
                             Submit and Compare
                         </Button>
                         <br></br>

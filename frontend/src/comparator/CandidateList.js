@@ -34,8 +34,7 @@ const candidates = [
     },
 ];
 
-const CandidateList = ({checkedCandidates, onCandidateClick}) => {
-
+const CandidateList = ({ checkedCandidates, onCandidateClick }) => {
     const handleScroll = () => {
         window.location.href = "#topics";
     };
