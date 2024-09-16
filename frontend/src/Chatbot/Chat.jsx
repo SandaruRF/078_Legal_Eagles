@@ -3,16 +3,7 @@ import "../CSS/chat-page.css"
 import axios from "axios";
 
 const Chat = () => {
-    function throttle(func, limit) {
-        let last = 0;
-        return function (...args) {
-            const now = Date.now();
-            if (now - last >= limit) {
-                last = now;
-                return func.apply(this, args);
-            }
-        };
-    }
+
     const prompt = useRef('');
     const [answer, setAnswer] = useState('');
     const [loading,iLoading] = useState(false);
