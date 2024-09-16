@@ -24,6 +24,8 @@ const candidates = ["anura", "ranil", "namal", "sajith"];
 
 const Comparator = () => {
     const [candidateData, setCandidateData] = useState(null);
+    const [summaryData, setSummaryData] = useState(null);
+
     const [checkedCandidates, setCheckedCandidates] = useState(
         Array(4).fill(false)
     );
@@ -75,18 +77,27 @@ const Comparator = () => {
     };
 
     const handleSubmit = async () => {
-        setFormSubmitted(true);
-
         const selectedCandidates = checkedCandidates
             .map((isChecked, index) => isChecked && candidates[index])
             .filter(Boolean);
 
         const selectedFields = texts.filter((_, index) => checkedImages[index]);
 
+        if (selectedCandidates.length < 2) {
+            alert("Please select at least 2 candidates.");
+            return;
+        }
+
+        if (selectedFields.length < 1) {
+            alert("Please select at least 1 field.");
+            return;
+        }
+
+        setFormSubmitted(true);
         setLoading(true);
 
         try {
-            const response = await fetch("http://127.0.0.1:8000/api/endpoint", {
+            const response = await fetch("http://127.0.0.1:8000/api/compare", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ selectedFields, selectedCandidates }),
@@ -100,11 +111,15 @@ const Comparator = () => {
             console.log("Success:", data);
 
             const candidateData = data.data;
+            const summaryData = data.summary;
+
             setCandidateData(candidateData);
+            setSummaryData(summaryData);
         } catch (error) {
             console.error("Error:", error);
         } finally {
             setLoading(false);
+            setFormSubmitted(false);
         }
     };
 
@@ -222,7 +237,28 @@ const Comparator = () => {
                                     )}
                                 </div>
                             </div>
-                            
+                            <Card
+                                style={{
+                                    width: "98%",
+                                    textAlign: "left",
+                                    height: "100%",
+                                    margin: "0 1rem 1rem 1rem",
+                                }}
+                            >
+                                <Card.Header
+                                    style={{
+                                        fontSize: "1.3rem",
+                                        fontWeight: "bold",
+                                    }}
+                                >
+                                    Summary of {field}
+                                </Card.Header>
+                                <Card.Body>
+                                    <Card.Text style={{ textAlign: "justify" }}>
+                                        {summaryData[field]}
+                                    </Card.Text>
+                                </Card.Body>
+                            </Card>
                         </Card>
                     ))}
                 </div>

@@ -64,6 +64,10 @@ def getAnswer(query):
 
     return answer.text
 
+def getSummary(summary_query):
+     answer = llm.generate_content(summary_query)
+     return answer.text
+
 
 load_dotenv()
 
@@ -77,23 +81,25 @@ CHROMA_PATH = ".\\chroma"
 
 
 PROMPT_TEMPLATE = """
-Answer the Question based only on the following context:
+Answer the question using only the following context:
 
 {context}
 
-Answer the question based on the above context: 
+Based on the above context, answer the question below:
+
 {question}
 
-Don't mention something like 'based on the provided context' on the answer.
-Just give me the answer according to the given template.
+Provide the answer in the following format:
+- Use bullet points (HTML <ul> tags) for clarity.
+- Limit the points to a maximum of 6.
+- Include all relevant details from the context.
+- Use the candidate's name as provided in the metadata.
 
-Answer template - 
-(use point form - max 6 points - give as html ul (text align left))
-
-topic_of_the_point - mini_description
-
-Add all important context information provided.
-To get candidate name, use metadata provided.
+Answer template:
+<ul>
+    <li>topic_of_the_point - mini_description</li>
+    ...
+</ul>
 """
 
 vector_db = Chroma(persist_directory=CHROMA_PATH, embedding_function=embeddings_model)
