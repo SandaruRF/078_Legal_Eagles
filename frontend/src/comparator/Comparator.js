@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import CandidateList from "./CandidateList";
 import Gallery from "./Gallery";
 import CandidateDiv from "./Candidatediv";
+import Card from "react-bootstrap/Card";
+
 const texts = [
     "Economy",
     "Health",
@@ -37,11 +39,11 @@ const Compare = () => {
     };
 
     const colorMap = {
-        "anura": "#F28C8C",  // Light Red
-        "ranil": "#FFF08F",      // Light Yellow
-        "namal": "#D3A5D5",          // Light Purple
-        "sajith": "#B6E5A1",          // Light Green
-      };
+        anura: "#F28C8C", // Light Red
+        ranil: "#FFF08F", // Light Yellow
+        namal: "#D3A5D5", // Light Purple
+        sajith: "#B6E5A1", // Light Green
+    };
 
     const handleSubmit = async () => {
         const selectedCandidates = checkedCandidates
@@ -56,7 +58,7 @@ const Compare = () => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ selectedFields ,selectedCandidates}),
+                body: JSON.stringify({ selectedFields, selectedCandidates }),
             });
 
             if (!response.ok) {
@@ -85,24 +87,63 @@ const Compare = () => {
                 onSubmit={handleSubmit}
             />
             {candidateData && (
-  <div style={{ marginTop: '20px' }}>
-    {Object.keys(candidateData[Object.keys(candidateData)[0]]).map((field, fieldIndex) => (
-      <div key={fieldIndex} style={{ marginBottom: '20px' }}>
-        <h3 style={{ textAlign: 'center', marginBottom: '10px' }}>{field}</h3>
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          {Object.entries(candidateData).map(([candidateName, candidateFields], index) => (
-            <CandidateDiv
-                key={index} // `key` prop for React's rendering
-                id={index} 
-              candidateData={{ [field]: candidateFields[field] }}
-              bgColor={colorMap[candidateName] || '#FFFFFF'}
-            />
-          ))}
-        </div>
-      </div>
-    ))}
-  </div>
-)}
+                <div style={{ marginTop: "20px" }}>
+                    {Object.keys(
+                        candidateData[Object.keys(candidateData)[0]]
+                    ).map((field, fieldIndex) => (
+                        <Card
+                            className="text-center"
+                            style={{
+                                backgroundColor: "#EEEEEE",
+                                marginRight: "5rem",
+                                marginLeft: "5rem",
+                                marginTop: "3rem",
+                            }}
+                        >
+                            <div
+                                key={fieldIndex}
+                                style={{ marginBottom: "20px" }}
+                            >
+                                <br></br>
+                                <Card.Title
+                                    style={{
+                                        fontSize: "1.7rem",
+                                        fontWeight: "bold",
+                                    }}
+                                >
+                                    {field}
+                                </Card.Title>
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        justifyContent: "space-between",
+                                    }}
+                                >
+                                    {Object.entries(candidateData).map(
+                                        (
+                                            [candidateName, candidateFields],
+                                            index
+                                        ) => (
+                                            <CandidateDiv
+                                                key={index} // `key` prop for React's rendering
+                                                id={index}
+                                                candidateData={{
+                                                    [field]:
+                                                        candidateFields[field],
+                                                }}
+                                                bgColor={
+                                                    colorMap[candidateName] ||
+                                                    "#FFFFFF"
+                                                }
+                                            />
+                                        )
+                                    )}
+                                </div>
+                            </div>
+                        </Card>
+                    ))}
+                </div>
+            )}
         </div>
     );
 };

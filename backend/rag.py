@@ -41,6 +41,28 @@ def create_knowledge_base():
     chunks = split_text(documents=documents)
     save_to_chroma(chunks)
 
+def getAnswer(query):
+
+    results = vector_db.similarity_search_with_relevance_scores(query, k=5)
+
+    if(len(results)==0):
+        answer = "No results !"
+
+    context_with_metadata = []
+    for doc, score in results:
+            metadata = doc.metadata
+            page_content = doc.page_content
+            context_with_metadata.append(f"Metadata: {metadata}\nContent: {page_content}\n\n---\n\n")
+        
+    context_text = "\n".join(context_with_metadata)
+
+    prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
+
+    prompt = prompt_template.format(context=context_text, question=query)
+
+    answer = llm.generate_content(prompt)
+
+    return answer.text
 
 
 load_dotenv()
@@ -64,36 +86,15 @@ Answer the question based on the above context:
 Don't mention something like 'based on the provided context' on the answer. Just give me the correct answer without mentioning anything.
 
 Answer template - 
+(use point form)
+give only two points (to display in a website give me a <ul> template)
 
 topic - summary
 
 Add all important context information provided.
+To get candidate name, use metadata provided.
 """
-
-query = "Sajith Premadasa environment goal"
 
 vector_db = Chroma(persist_directory=CHROMA_PATH, embedding_function=embeddings_model)
 
-results = vector_db.similarity_search_with_relevance_scores(query, k=5)
-
-if(len(results)==0):
-    print(f"Unable to find matching results!!")
-
-context_with_metadata = []
-for doc, score in results:
-        metadata = doc.metadata
-        page_content = doc.page_content
-        context_with_metadata.append(f"Metadata: {metadata}\nContent: {page_content}\n\n---\n\n")
-    
-context_text = "\n".join(context_with_metadata)
-
-print(context_text)
-
-prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
-
-# prompt = prompt_template.format(context=context_text, question=query)
-
-# answer = llm.generate_content(prompt)
-
-# print(answer.text)
 

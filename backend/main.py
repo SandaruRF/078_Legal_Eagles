@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from fastapi.responses import HTMLResponse
-
+from rag import getAnswer
 
 class Selection(BaseModel):
     selectedFields: list[str]
@@ -28,8 +28,19 @@ async def receive_selection(selection: Selection):
        
         candidate_fields = {}
         
+        if candidate == 'anura':
+            name = "Anura Kumara Dissanayake (akd) (NPP candidate)"
+        elif candidate == 'sajith':
+            name = "Sajith Premadasa (sp) (SJP candidate)"
+        elif candidate == 'ranil':
+            name = "Ranil Wickramasinghe (rw)"
+        else:
+            name = "Namal Rajapakshe (nr) (SLPP candidate)"
+
         for field in selection.selectedFields:
-            candidate_fields[field] = f"Details about {field} for {candidate} "
+            query = f"{name} goals for {field}"
+            answer = getAnswer(query)
+            candidate_fields[field] = f"{answer}"
         
         candidate_details[candidate] = candidate_fields
 
