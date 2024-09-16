@@ -22,8 +22,22 @@ app.add_middleware(
 
 @app.post("/api/endpoint")
 async def receive_selection(selection: Selection):
-    print("Received selection:", selection.selectedFields)
-    return {"message": "Selection received", "selectedFields": selection.selectedFields, "selectedCandidates":selection.selectedCandidates}
+    candidate_details = {} 
+
+    for candidate in selection.selectedCandidates:
+       
+        candidate_fields = {}
+        
+        for field in selection.selectedFields:
+            candidate_fields[field] = f"Details about {field} for {candidate} "
+        
+        candidate_details[candidate] = candidate_fields
+
+
+    return {
+        "message": "Selection received",
+        "data": candidate_details
+    }
 
 @app.get("/")
 async def read_root():
