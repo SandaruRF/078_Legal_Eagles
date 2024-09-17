@@ -94,7 +94,7 @@ const Chat = () => {
                     </div>
                     <div className="col-sm-8">
                         <h1 className="chatbot-title-text">
-                            Welcome to the Legal Eagle Chat Bot{" "}
+                            Welcome to the Legal Eagles Chat Bot{" "}
                         </h1>
                     </div>
                     <div className="col-sm-2">
@@ -139,7 +139,7 @@ const Chat = () => {
                 </div>
             </div>
             <br></br>
-            <p className='footer-text-bot'> Legal Eagle chatbot can make mistakes. Check important info.</p>
+            <p className='footer-text-bot'> Legal Eagles chatbot can make mistakes. Check important info.</p>
         </div>
     );
 };
