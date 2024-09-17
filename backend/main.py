@@ -3,6 +3,55 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from fastapi.responses import HTMLResponse
 from rag import getAnswer, getSummary
+import pandas as pd
+import joblib
+
+
+test_df = pd.read_csv('model/present_election_dataset1.csv')
+
+model = joblib.load('model/final_percentage_predictor.pkl')
+
+test_predictions = model.predict(test_df[['roberta_pos', 'Poll_data', 'Sentiment_score', 'Election_year', 'Candidate_name_encoded']])
+
+sajithTot=0
+sajithCount=0
+
+namalTot=0
+namalCount=0
+
+anuraTot=0
+anuraCount=0
+
+ranilTot=0
+ranilCount=0
+
+for x in range(0,241):
+    sajithTot+=test_predictions[x]
+    sajithCount+=1
+
+for x in range(241,511):
+    namalTot+=test_predictions[x]
+    namalCount+=1
+
+for x in range(511,786):
+    anuraTot+=test_predictions[x]
+    anuraCount+=1
+
+for x in range(786,1070):
+    ranilTot+=test_predictions[x]
+    ranilCount+=1
+
+sajith=sajithTot/sajithCount
+namal=namalTot/namalCount
+anura=anuraTot/anuraCount
+ranil=ranilTot/ranilCount
+
+tot=sajith+namal+anura+ranil
+
+sajithVal=sajith/tot
+namalVal=namal/tot
+anuraVal=anura/tot
+ranilVal=ranil/tot
 
 class Selection(BaseModel):
     selectedFields: list[str]
@@ -62,6 +111,17 @@ async def receive_selection(selection: Selection):
         "summary": summary_details
     }
 
+@app.get("/get-values")
+async def get_values():   
+    return {
+        "ranil": ranilVal*100,
+        "anura": anuraVal*100,
+        "sajith": sajithVal*100,
+        "namal": namalVal*100,
+    }
+
 @app.get("/")
 async def read_root():
     return HTMLResponse("<h1>Welcome to the FastAPI Backend</h1>")
+
+
