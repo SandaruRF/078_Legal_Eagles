@@ -16,9 +16,7 @@
     width:90vw;
     overflow-y:scroll;
     padding-bottom: 20px;
-    animation: smooth-scroll;
-    animation-duration: 0.5s;
-    animation-delay: 0.5s;
+
 }
 .chat-section::-webkit-scrollbar{
     width: 0.5px;
@@ -82,13 +80,19 @@
     text-align: justify;
     max-width: 600px;
     scroll-behavior: smooth;
+    animation: smooth-scroll;
+    animation-duration: 1s;
 }
 
 @keyframes smooth-scroll {
     0% {
-        transform: translateY(0);
+        height:0;
+        opacity: 0;
+        transform: translateY(-500px);
     }
     100% {
-        transform: translateY(-500px); /* Adjust the scroll distance */
+        height:fit-content;
+        opacity: 1;
+        transform: translateY(0px);
     }
 }

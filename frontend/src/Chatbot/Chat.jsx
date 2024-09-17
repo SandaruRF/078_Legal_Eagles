@@ -28,6 +28,7 @@ const Chat = () => {
         container.appendChild(row);
         const chatSection = document.querySelector('.chat-section');
         chatSection.scrollTop = chatSection.scrollHeight;
+        chatSection.scrollTo()
 
         prompt.current.value = "";
 
