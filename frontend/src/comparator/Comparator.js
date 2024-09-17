@@ -213,7 +213,8 @@ const Comparator = () => {
                                 <div
                                     style={{
                                         display: "flex",
-                                        justifyContent: "space-between",
+                                        flexWrap: "wrap",
+                                        justifyContent: "center",
                                     }}
                                 >
                                     {Object.entries(candidateData).map(
