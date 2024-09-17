@@ -57,7 +57,7 @@ const Aboutus = () => {
                     <Card.Title
                         style={{ fontSize: "1.7rem", fontWeight: "bold" }}
                     >
-                        Legel Eagle : Our Team
+                        Legal Eagles : Our Team
                     </Card.Title>
                     <br></br>
                     <div
