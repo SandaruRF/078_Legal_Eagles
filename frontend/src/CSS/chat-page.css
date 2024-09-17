@@ -166,15 +166,11 @@
     }
 }
 
-@media screen and (max-width: 1500px) {
-    .user-prompt {
-        left: -60px;
-    }
-}
+
 .back-button {
     text-decoration: none;
     position: absolute;
-    left: 100px;
+    left: 148px;
     color: black;
     top: 15px;
     height: 30px;
@@ -188,9 +184,319 @@
 .logo-img {
     height: 60px;
     width: 60px;
-
+    margin-left: 50px;
     margin-top: 5px;
 }
 .dark-chat-section {
     background-color: rgb(33, 35, 51);
+}
+
+@media screen and (max-width: 1500px) {
+    .user-prompt {
+        left: 0px;
+    }
+    .title-row{
+        width:90vw;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .logo-img {
+        height: 50px;
+        width: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5px;
+        float:right;
+    }
+    .back-button {
+        left:0px;
+    }
+    .chatbot-title-text{
+        font-size: 25px;
+    }
+
+
+}
+
+@media screen and (max-width:991px) {
+    .back-button {
+        left:101px;
+    }
+    .chatbot-title-text{
+        font-size: 20px;
+        margin-top:15px;
+    }
+    .logo-img {
+        position: absolute;
+        right:100px;
+    }
+    .footer-text-bot{
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .back-button {
+        left:30px;
+    }
+    .chatbot-title-text{
+        font-size: 16px;
+        margin-top:20px;
+    }
+    .logo-img {
+        position: absolute;
+        right:20px;
+    }
+    .footer-text-bot{
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width:576px) {
+    .back-button {
+        left:30px;
+    }
+    .chatbot-title-text{
+        font-size: 16px;
+        margin-top:20px;
+    }
+    .submit-prompt{
+        position: absolute;
+        right:0;
+        left:410px;
+        width:120px;
+        bottom: 0px;
+        height:51px;
+    }
+    .user-prompt {
+        left: auto;
+        right: auto;
+        width:80vw;
+    }
+    .logo-img {
+        position: absolute;
+        right:20px;
+        display: block;
+        top:-45px;
+    }
+    .footer-text-bot{
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    .title-row{
+        width:100vw;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+    }
+
+    .user-question-div{
+        width: 250px;
+        margin-right: 0px;
+        margin-left: 140px;
+    }
+    .answer-div{
+        width: 250px;
+    }
+}
+
+@media screen and (max-width:490px) {
+    .back-button {
+        left:10px;
+        height:30px;
+        width: 40px;
+    }
+    .chatbot-title-text{
+        font-size: 16px;
+        margin-top:20px;
+    }
+    .submit-prompt{
+        position: absolute;
+        right:0;
+        left:300px;
+        width:120px;
+        bottom: 0px;
+        height:50px;
+    }
+    .user-prompt {
+        left: auto;
+        right: auto;
+        width:80vw;
+    }
+    .logo-img {
+        position: absolute;
+        right:20px;
+        display: block;
+        top:-40px;
+    }
+    .footer-text-bot{
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    .title-row{
+        width:100vw;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+    }
+
+    .user-question-div{
+        width: 200px;
+        margin-right: 0px;
+        margin-left: 75px;
+    }
+    .answer-div{
+        width: 180px;
+    }
+}
+@media screen and (max-width:425px) {
+    .back-button {
+        left:10px;
+        height:25px;
+        width: 35px;
+    }
+    .chatbot-title-text{
+        font-size: 16px;
+        margin-top:20px;
+    }
+    .submit-prompt{
+        position: absolute;
+        right:0;
+        left:255px;
+        width:120px;
+        bottom: 0px;
+        height:50px;
+    }
+    .user-prompt {
+        left: auto;
+        right: auto;
+        width:80vw;
+    }
+    .logo-img {
+        position: absolute;
+        right:5px;
+        display: block;
+        top:-45px;
+    }
+    .footer-text-bot{
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    .title-row{
+        width:100vw;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+    }
+
+    .user-question-div{
+        width: 180px;
+        margin-right: 0px;
+        margin-left: 50px;
+    }
+    .answer-div{
+        width: 150px;
+    }
+}
+@media screen and (max-width:391px) {
+    .back-button {
+        left:10px;
+        height:25px;
+        width: 35px;
+    }
+    .chatbot-title-text{
+        font-size: 16px;
+        margin-top:20px;
+    }
+    .submit-prompt{
+        position: absolute;
+        right:0;
+        left:255px;
+        width:120px;
+        bottom: 0px;
+        height:50px;
+    }
+    .user-prompt {
+        left: auto;
+        right: auto;
+        width:80vw;
+    }
+    .logo-img {
+        position: absolute;
+        right:5px;
+        display: block;
+        top:-45px;
+    }
+    .footer-text-bot{
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    .title-row{
+        width:100vw;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+    }
+
+    .user-question-div{
+        width: 180px;
+        margin-right: 0px;
+        margin-left: 50px;
+    }
+    .answer-div{
+        width: 150px;
+    }
+}
+
+@media screen and (max-width:361px) {
+    .back-button {
+        left:10px;
+        height:25px;
+        width: 35px;
+    }
+    .chatbot-title-text{
+        font-size: 12px;
+        margin-top:20px;
+    }
+    .submit-prompt{
+        position: absolute;
+        right:0;
+        left:240px;
+        width:120px;
+        bottom: 0px;
+        height:50px;
+    }
+    .user-prompt {
+        left: auto;
+        right: auto;
+        width:80vw;
+    }
+    .logo-img {
+        position: absolute;
+        right:5px;
+        display: block;
+        top:-45px;
+    }
+    .footer-text-bot{
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    .title-row{
+        width:100vw;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+    }
+
+    .user-question-div{
+        width: 150px;
+        margin-right: 0px;
+        margin-left: 60px;
+        font-size: 15px;
+    }
+    .answer-div{
+        width: 150px;
+    }
 }

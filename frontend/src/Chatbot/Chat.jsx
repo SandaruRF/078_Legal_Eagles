@@ -81,7 +81,7 @@ const Chat = () => {
     return (
         <div className="chat-page">
             <div className="container-fluide title-container">
-                <div className="row">
+                <div className="row title-row">
                     <div className="col-sm-2">
                         <img
                             src={back}
@@ -137,7 +137,7 @@ const Chat = () => {
                 </div>
             </div>
             <br></br>
-            <p> Legal Eagle chatbot can make mistakes. Check important info.</p>
+            <p className='footer-text-bot'> Legal Eagle chatbot can make mistakes. Check important info.</p>
         </div>
     );
 };
