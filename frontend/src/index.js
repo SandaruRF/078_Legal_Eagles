@@ -5,11 +5,11 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Chat from "./Chatbot/Chat";
 import Homepage from "./home/Homepage";
 import Comparator from "./comparator/Comparator";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
 const router = createBrowserRouter([
     {
         path: "/",
@@ -21,13 +21,15 @@ const router = createBrowserRouter([
         element: <Comparator />,
         errorElement: "404 Error \n Page not Found.",
     },
+    {
+        path:"/chat",
+        element:<Chat/>,
+        errorElement:"404 Error \n Page not Found."
+    }
 ]);
-
 root.render(
     <React.StrictMode>
-        <RouterProvider router={router}>
-            <App />
-        </RouterProvider>
+        <RouterProvider router={router}/>
     </React.StrictMode>
 );
 
