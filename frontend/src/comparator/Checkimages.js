@@ -21,7 +21,7 @@ const CheckImages = ({ src, text, isChecked, onClick }) => {
                 onChange={onClick}
             />
             <label htmlFor="checkbox" className="checkbox-label"></label>
-            <p>{text}</p>
+            <p style={{ marginTop: "8px" }}>{text}</p>
         </div>
     );
 };

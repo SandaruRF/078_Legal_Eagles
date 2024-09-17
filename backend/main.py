@@ -51,8 +51,8 @@ def getTokens(text):
 token_count = [getTokens(doc.page_content) for doc in docs]
 
 splitter = RecursiveCharacterTextSplitter(
-    chunk_size=300,
-    chunk_overlap=50,
+    chunk_size=1000,
+    chunk_overlap=100,
     length_function = len
 )
 
@@ -65,12 +65,29 @@ vectorstore = Chroma.from_documents(
     embedding=embedding_model
 )
 
-retriver = vectorstore.as_retriever()
+retriver = vectorstore.as_retriever(search_kwargs={"k": 10})
 
 system_prompt = (
-    "As you're an intelligent chatbot, use the following context to answer the question."
-    "\n\n"
-    "{context}"
+    """As an intelligent chatbot assisting with information about the 2024 Sri Lanka presidential election, 
+    use the following context to answer the question:
+
+    Context:
+    {context}
+
+    -end of the context-
+
+    
+    If the user asks about anything other than the election, inform them that you are here to answer questions related to the election.
+    Do not provide answers on topics outside the scope of the 2024 presidential election.
+    Base your answers solely on the context provided.
+    Since you are responding to a person, avoid referring to the context's limitations. Focus on delivering relevant information based on the given context.
+
+    Important information:
+    - Ranil Wickramasinghe: Individual Candidate
+    - Anura Kumara Dissanayake: NPP candidate
+    - Sajith Premadasa: SJP candidate
+    - Namal Rajapaksha: SLPP candidate
+    """
 )
 
 output_parser = StrOutputParser()
@@ -208,7 +225,7 @@ async def receive_selection(selection: Selection):
             name = "Namal Rajapakshe (SLPP candidate)"
 
         for field in selection.selectedFields:
-            query = f"What are {name}'s goals and plans in the {'protection' if field == 'defence' else field} field?"
+            query = f"What are {name}'s goals and plans in the {'protection security defence' if field == 'Defense' or field == 'defence' else field} field?"
             answer = getAnswer(query, name, field, candidate)
             candidate_fields[field] = f"{answer}"
         
@@ -252,6 +269,7 @@ async def askQuestion(question:str):
     if(question=='Bye' or question=='bye'):
         return {"Answer":"Good Bye"}
     
+    question += "\n(If the user asks about anything other than the election, inform them that you are here to answer questions related to the election. Do not provide answers on topics outside the scope of the 2024 presidential election.)"
     result = conversational_rag_chain.invoke(
         {"input": question},
         config={"configurable": {"session_id": "101"}},

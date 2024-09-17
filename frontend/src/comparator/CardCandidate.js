@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 
-const CardCandidate = ({ key, image, name, party, bgColor,isChecked, onClick }) => {
+const CardCandidate = ({
+    key,
+    image,
+    name,
+    party,
+    bgColor,
+    isChecked,
+    onClick,
+}) => {
     return (
         <>
             <Card
@@ -22,7 +30,7 @@ const CardCandidate = ({ key, image, name, party, bgColor,isChecked, onClick }) 
                     variant="top"
                     src={image}
                     style={{
-                        width: "13.85rem",
+                        width: "94.5%",
                         height: "200px",
                         objectFit: "cover",
                         marginTop: "0.5rem",
