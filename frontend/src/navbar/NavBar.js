@@ -46,14 +46,12 @@ export const NavBar = () => {
                                 Comparator
                             </Link>
                         </Nav.Link>
+                        <Nav.Link className="navbar-link">
+                            <Link to={"/about"} style={{ all: "unset" }}>
+                                About Us
+                            </Link>
+                        </Nav.Link>
                     </Nav>
-                    <span className="navbar-text">
-                        <a href="#footer">
-                            <button className="vvd">
-                                <span>Legal Eagles</span>
-                            </button>
-                        </a>
-                    </span>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
