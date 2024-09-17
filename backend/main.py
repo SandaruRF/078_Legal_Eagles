@@ -144,11 +144,20 @@ print("If you want to leave, enter 'Bye'.")
 
 
 
-test_df = pd.read_csv('model/present_election_dataset1.csv')
 
-model = joblib.load('model/final_percentage_predictor.pkl')
 
-test_predictions = model.predict(test_df[['roberta_pos', 'Poll_data', 'Sentiment_score', 'Election_year', 'Candidate_name_encoded']])
+test_df = pd.read_csv('model/present_election_dataset1.csv')  #importing the dataset csv file to input to the model
+
+model = joblib.load('model/final_percentage_predictor.pkl') #importing the model
+
+test_predictions = model.predict(test_df[['Poll_data', 'Postal_data', 'Sentiment_score', 'Candidate_Year_encoded']].values)
+
+test_df['predicted_final_percentage'] = test_predictions #adding new colmun with model output to csv file
+
+secondVoteName1=None
+secondVoteName2=None
+secondVoteVal1=None
+secondVoteVal2=None
 
 sajithTot=0
 sajithCount=0
@@ -162,33 +171,84 @@ anuraCount=0
 ranilTot=0
 ranilCount=0
 
-for x in range(0,241):
-    sajithTot+=test_predictions[x]
-    sajithCount+=1
+for index, row in test_df.iterrows():
+    name=row['Candidate_name']
+    value=row['predicted_final_percentage'] 
 
-for x in range(241,511):
-    namalTot+=test_predictions[x]
-    namalCount+=1
+    if(name=='Sajith'):
+        sajithTot+=value
+        sajithCount+=1
+    if(name=='Ranil'):
+        ranilTot+=value
+        ranilCount+=1
+    if(name=='Anura'):
+        anuraTot+=value
+        anuraCount+=1
+    if(name=='Namal'):
+        namalTot+=value
+        namalCount+=1
 
-for x in range(511,786):
-    anuraTot+=test_predictions[x]
-    anuraCount+=1
+sajithVal=sajithTot/sajithCount
+namalVal=namalTot/namalCount
+anuraVal=anuraTot/anuraCount
+ranilVal=ranilTot/ranilCount
 
-for x in range(786,1070):
-    ranilTot+=test_predictions[x]
-    ranilCount+=1
+tot=sajithVal+namalVal+anuraVal+ranilVal
 
-sajith=sajithTot/sajithCount
-namal=namalTot/namalCount
-anura=anuraTot/anuraCount
-ranil=ranilTot/ranilCount
+sajithP=(sajithVal/tot)*100
+namalP=(namalVal/tot)*100
+anuraP=(anuraVal/tot)*100
+ranilP=(ranilVal/tot)*100
 
-tot=sajith+namal+anura+ranil
+secondVote={'sajith':{'ranil':0.32,'anura':0.29,'namal':0.01},  #details incase a second vite is required (second votes percentages)
+            'anura':{'ranil':0.11,'sajith':0.09,'namal':0},
+            'ranil':{'sajith':0.35,'anura':0.22,'namal':0.03}
+            }
 
-sajithVal=sajith/tot
-namalVal=namal/tot
-anuraVal=anura/tot
-ranilVal=ranil/tot
+values = {'sajith': sajithP,'namal': namalP,'anura': anuraP,'ranil': ranilP}
+
+sorted_values = sorted(values.items(), key=lambda x: x[1], reverse=True)
+
+#fidning the top two candidates
+max1_name, max1_value = sorted_values[0]
+max2_name, max2_value = sorted_values[1]
+
+last1_name,last1_value=sorted_values[2]
+last2_name,last2_value=sorted_values[3]
+
+def fullName(name):   # fucntion to change name to full name
+    if(name=='ranil'):
+        return 'Ranil Wickremesinghe'
+    if(name=='sajith'):
+        return 'Sajith Premadasa'
+    if(name=='anura'):
+        return 'Anura Kumara'
+    if(name=='namal'):
+        return 'Namal Rajapaksa'
+
+if(not(max1_value>50)):  #check if any contestent has above 50%
+    secondVoteMax1=max1_name  
+    secondVoteMax2=max2_name
+    secondVoteMaxVal1=max1_value + last1_value*(secondVote[last1_name][secondVoteMax1]) + last2_value*(secondVote[last2_name][secondVoteMax1])
+    secondVoteMaxVal2=max2_value + last1_value*(secondVote[last1_name][secondVoteMax2]) + last2_value*(secondVote[last2_name][secondVoteMax2])
+
+    secondVoteMaxVal1=round(secondVoteMaxVal1,3)
+    secondVoteMaxVal2=round(secondVoteMaxVal2,3)
+
+    secondVoteMax1=fullName(secondVoteMax1)
+    secondVoteMax2=fullName(secondVoteMax2)
+
+
+sajithP=round(sajithP, 3)
+ranilP=round(ranilP, 3)
+namalP=round(namalP, 3)
+anuraP=round(anuraP, 3)
+
+
+
+
+
+
 
 class Selection(BaseModel):
     selectedFields: list[str]
@@ -257,10 +317,14 @@ async def receive_selection(selection: Selection):
 @app.get("/get-values")
 async def get_values():   
     return {
-        "ranil": ranilVal*100,
-        "anura": anuraVal*100,
-        "sajith": sajithVal*100,
-        "namal": namalVal*100,
+        "ranil": ranilP,
+        "anura": anuraP,
+        "sajith": sajithP,
+        "namal": namalP,
+        "secondVoteName1":secondVoteMax1, 
+        "secondVoteVal1":secondVoteMaxVal1,
+        "secondVoteName2":secondVoteMax2,
+        "secondVoteVal2":secondVoteMaxVal2,
     }
 
 @app.get("/chat/{question}")
