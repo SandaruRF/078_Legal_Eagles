@@ -32,7 +32,7 @@ const Aboutus = () => {
                 "https://www.linkedin.com/in/nadil-siriwardhana-b8566526a/",
         },
         {
-            name: "Sehara Arunodaya",
+            name: "Sehara Arunodya",
             image: sehara,
             linkedin: "https://www.linkedin.com/in/sehara-arunodya-33279321b/",
         },
