@@ -117,28 +117,36 @@ ul {
     padding: 0;
     line-height: normal;
     text-decoration: none;
-  }
-  a:hover {
+}
+
+a:hover {
     text-decoration: none;
-  }
-  img {
+}
+
+img {
     width: 100%;
     height: auto;
-  }
-  button {
+}
+
+button {
     border: 0;
     background-color: transparent;
-  }
-  input:focus, textarea:focus, select:focus {
+}
+
+input:focus,
+textarea:focus,
+select:focus {
     outline: none;
-  }
-  @media (min-width:1700px) {
+}
+
+@media (min-width: 1700px) {
     main .container {
         max-width: 100%;
         padding: 0 150px;
     }
-  }
-  nav.navbar {
+}
+
+nav.navbar {
     background-color: #b6b4b4;
     padding: 18px 0;
     width: 100%;

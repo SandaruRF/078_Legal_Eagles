@@ -50,9 +50,9 @@ def create_knowledge_base():
     chunks = split_text(documents=documents)
     save_to_chroma(chunks)
 
-def getAnswer(query, candidate, field):
+def getAnswer(query, candidate, field, name):
 
-    results = vector_db.similarity_search_with_relevance_scores(query, k=10)
+    results = vector_db.similarity_search_with_relevance_scores(query, k=15)
 
     if(len(results)==0):
         answer = "No results !"
@@ -63,11 +63,11 @@ def getAnswer(query, candidate, field):
             page_content = doc.page_content
             context_with_metadata.append(f"Metadata: {metadata}\nContent: {page_content}\n\n---\n\n")
         
-    context_text = "\n".join(context_with_metadata)
+    context_text = "\n\n".join(context_with_metadata)
 
     prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
 
-    prompt = prompt_template.format(context=context_text, candidate=candidate, field=field)
+    prompt = prompt_template.format(context=context_text, candidate=candidate, field=field, name=name)
 
     answer = llm.generate_content(prompt)
 
@@ -83,23 +83,27 @@ Answer the question using only the following context:
 
 {context}
 
-Based on the above context, extract the goals for the candidate and field provided below:
+Based on the above context and using the metadata PDF name, extract the goals for the candidate and field provided below:
 
-Candidate: {candidate}
+Candidate (party): {candidate}
 Field: {field}
+Candidate short name: {name}
+
+Use the metadata PDF name to identify the relevant candidate for each text chunk. Ensure that the extracted information pertains specifically to the given candidate and field. Do not include goals or information relevant to other candidates.
+
+If the provided context does not have specific information on the field for the relevant candidate, try to extract relevant information based on the context of the relevent candidate.
+If no relevant information can be extracted, provide a single list item: "Unable to find {field} goals from {name}'s manifesto."
 
 Provide the answer in the following format:
 - Use bullet points (HTML <ul> tags) for clarity.
 - Limit the points to a maximum of 6.
 - Include all relevant details from the context.
-- If the provided context does not have specific information on the field for the relevant candidate, try to extract relevant information based on the context.
-- If no relevant information can be extracted, provide a single list item: "Unable to find {field} goals from {candidate}'s manifesto."
-- Ensure the topic relates to the given field (e.g., school education for the education field).
-- Extract the goals for the relevant field from the relevant candidate based on the context.
+- Ensure the topic relates to the mini description of the topic (e.g., school education for the education field).
 
 Answer template:
 <ul>
-    <li>topic_of_the_point - mini_description</li>
+    <li>topic_of_the_point_1 - mini_description</li>
+    <li>topic_of_the_point_2 - mini_description</li>
     ...
 </ul>
 """
