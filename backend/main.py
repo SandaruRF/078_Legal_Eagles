@@ -202,7 +202,8 @@ ranilP=(ranilVal/tot)*100
 
 secondVote={'sajith':{'ranil':0.32,'anura':0.29,'namal':0.01},  #details incase a second vite is required (second votes percentages)
             'anura':{'ranil':0.11,'sajith':0.09,'namal':0},
-            'ranil':{'sajith':0.35,'anura':0.22,'namal':0.03}
+            'ranil':{'sajith':0.35,'anura':0.22,'namal':0.03},
+            'namal':{'sajith':0.05,'anura':0.1,'ranil':0.5}
             }
 
 values = {'sajith': sajithP,'namal': namalP,'anura': anuraP,'ranil': ranilP}
