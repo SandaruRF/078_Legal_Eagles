@@ -186,6 +186,7 @@
     width: 60px;
     margin-left: 50px;
     margin-top: 5px;
+    cursor: pointer;
 }
 .dark-chat-section {
     background-color: rgb(33, 35, 51);

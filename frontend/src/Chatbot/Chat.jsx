@@ -98,7 +98,9 @@ const Chat = () => {
                         </h1>
                     </div>
                     <div className="col-sm-2">
-                        <img src={logo} className="logo-img" alt="" />
+                        <img src={logo} className="logo-img" alt=""  onClick={() => {
+                                clickBack();
+                            }}/>
                     </div>
                 </div>
             </div>
