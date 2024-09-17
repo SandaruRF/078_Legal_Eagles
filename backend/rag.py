@@ -92,7 +92,8 @@ Provide the answer in the following format:
 - Use bullet points (HTML <ul> tags) for clarity.
 - Limit the points to a maximum of 6.
 - Include all relevant details from the context.
-- If the provided context does not have information on the specific field for the relevant candidate, the list item should be: "Unable to find {field} goals from {candidate}'s manifesto."
+- If the provided context does not have specific information on the field for the relevant candidate, try to extract relevant information based on the context.
+- If no relevant information can be extracted, provide a single list item: "Unable to find {field} goals from {candidate}'s manifesto."
 - Ensure the topic relates to the given field (e.g., school education for the education field).
 - Extract the goals for the relevant field from the relevant candidate based on the context.
 
@@ -102,6 +103,7 @@ Answer template:
     ...
 </ul>
 """
+
 
 
 

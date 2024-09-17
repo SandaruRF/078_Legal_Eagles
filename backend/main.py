@@ -96,12 +96,17 @@ async def receive_selection(selection: Selection):
 
     for field in selection.selectedFields:
         summary_query = f"""
-        Provide a concise summary of the {field} goals for all selected candidates based on {candidate_details}.
-        Ensure the summary is clear, informative, and helpful for comparing the candidates effectively.
-        Avoid any bias and refrain from suggesting support for any particular candidate.
-        Offer a brief comparison between the candidates without using emphatic language or bold words.
+        Provide a concise summary and comparison of the {field} goals and plans for all selected candidates based on the context below:
+        
+        {candidate_details}
+        
+        Ensure the summary is clear, informative, and effective for comparing the candidates.
+        Only extract {field} information from the context.
+        Avoid bias and do not suggest support for any candidate.
+        Offer a brief comparison between the candidates without using emphatic language or bold formatting.
         Limit the summary to a maximum of 12 sentences.
         """
+
 
 
         summary_details[field] = getSummary(summary_query)
