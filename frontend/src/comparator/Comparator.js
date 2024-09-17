@@ -4,6 +4,8 @@ import Gallery from "./Gallery";
 import CandidateDiv from "./Candidatediv";
 import Card from "react-bootstrap/Card";
 import Spinner from "react-bootstrap/Spinner";
+import { NavBar } from "../navbar/NavBar";
+import Footer from "../footer/Footer";
 
 const texts = [
     "Economy",
@@ -125,6 +127,7 @@ const Comparator = () => {
 
     return (
         <div>
+            <NavBar />
             <CandidateList
                 checkedCandidates={checkedCandidates}
                 onCandidateClick={handleCandidateSelection}
@@ -263,6 +266,7 @@ const Comparator = () => {
                     ))}
                 </div>
             ) : null}
+            <Footer />
         </div>
     );
 };

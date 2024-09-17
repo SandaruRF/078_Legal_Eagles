@@ -9,6 +9,15 @@ from langchain.prompts import ChatPromptTemplate
 import os
 import shutil
 
+load_dotenv()
+
+genai.configure(api_key=os.environ["API_KEY"])
+
+llm = genai.GenerativeModel("gemini-1.5-flash")
+embeddings_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+
+DATA_PATH = "data"
+CHROMA_PATH = "chroma"
 
 def load_document():
     document_loader = PyPDFDirectoryLoader(DATA_PATH)
@@ -41,9 +50,9 @@ def create_knowledge_base():
     chunks = split_text(documents=documents)
     save_to_chroma(chunks)
 
-def getAnswer(query):
+def getAnswer(query, candidate, field):
 
-    results = vector_db.similarity_search_with_relevance_scores(query, k=5)
+    results = vector_db.similarity_search_with_relevance_scores(query, k=10)
 
     if(len(results)==0):
         answer = "No results !"
@@ -58,7 +67,7 @@ def getAnswer(query):
 
     prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
 
-    prompt = prompt_template.format(context=context_text, question=query)
+    prompt = prompt_template.format(context=context_text, candidate=candidate, field=field)
 
     answer = llm.generate_content(prompt)
 
@@ -69,31 +78,24 @@ def getSummary(summary_query):
      return answer.text
 
 
-load_dotenv()
-
-genai.configure(api_key=os.environ["API_KEY"])
-
-llm = genai.GenerativeModel("gemini-1.5-flash")
-embeddings_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
-
-DATA_PATH = ".\\data"
-CHROMA_PATH = ".\\chroma"
-
-
 PROMPT_TEMPLATE = """
 Answer the question using only the following context:
 
 {context}
 
-Based on the above context, answer the question below:
+Based on the above context, extract the goals for the candidate and field provided below:
 
-{question}
+Candidate: {candidate}
+Field: {field}
 
 Provide the answer in the following format:
 - Use bullet points (HTML <ul> tags) for clarity.
 - Limit the points to a maximum of 6.
 - Include all relevant details from the context.
-- Use the candidate's name as provided in the metadata.
+- If the provided context does not have specific information on the field for the relevant candidate, try to extract relevant information based on the context.
+- If no relevant information can be extracted, provide a single list item: "Unable to find {field} goals from {candidate}'s manifesto."
+- Ensure the topic relates to the given field (e.g., school education for the education field).
+- Extract the goals for the relevant field from the relevant candidate based on the context.
 
 Answer template:
 <ul>
@@ -101,6 +103,9 @@ Answer template:
     ...
 </ul>
 """
+
+
+
 
 vector_db = Chroma(persist_directory=CHROMA_PATH, embedding_function=embeddings_model)
 
