@@ -208,7 +208,7 @@ async def receive_selection(selection: Selection):
             name = "Namal Rajapakshe (SLPP candidate)"
 
         for field in selection.selectedFields:
-            query = f"What are {name}'s goals and plans in the {field} field?"
+            query = f"What are {name}'s goals and plans in the {'security' if field == 'defence' else field} field?"
             answer = getAnswer(query, name, field, candidate)
             candidate_fields[field] = f"{answer}"
         
