@@ -88,20 +88,21 @@ async def receive_selection(selection: Selection):
             name = "Namal Rajapakshe (SLPP candidate)"
 
         for field in selection.selectedFields:
-            query = f"{name} goals for {field}"
-            answer = getAnswer(query)
+            query = f"What are {name}'s goals and plans in the {field} field?"
+            answer = getAnswer(query, candidate, field)
             candidate_fields[field] = f"{answer}"
         
         candidate_details[candidate] = candidate_fields
 
     for field in selection.selectedFields:
         summary_query = f"""
-        Provide a concise summary of {field} goals for all selected candidates based on {candidate_details}. 
-        Ensure the summary is clear, informative, and aids in comparing the candidates effectively.
-        Avoid bias and do not suggest voting for any particular candidate.
-        Provide a brief comparison between the candidates without using bold words.
+        Provide a concise summary of the {field} goals for all selected candidates based on {candidate_details}.
+        Ensure the summary is clear, informative, and helpful for comparing the candidates effectively.
+        Avoid any bias and refrain from suggesting support for any particular candidate.
+        Offer a brief comparison between the candidates without using emphatic language or bold words.
         Limit the summary to a maximum of 12 sentences.
         """
+
 
         summary_details[field] = getSummary(summary_query)
 
