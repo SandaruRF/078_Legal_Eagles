@@ -33,6 +33,7 @@ function Homepage() {
           <BarChart />
         </div>
       )}
+       <br></br>
       <Footer/>
     </div>
   );

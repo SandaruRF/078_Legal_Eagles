@@ -79,6 +79,11 @@ const Aboutus = () => {
                     <br></br>
                 </Card.Body>
             </Card>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             <Footer />
         </div>
     );
