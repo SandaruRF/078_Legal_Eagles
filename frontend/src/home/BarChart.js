@@ -151,7 +151,7 @@ const BarChart = () => {
         labels: [values.secondVoteName1, values.secondVoteName2],
         datasets: [
             {
-                label: "Second Vote Percentage (%)",
+                label: "Final Vote Percentage (%)",
                 data: [values.secondVoteVal1, values.secondVoteVal2],
                 backgroundColor: [
                     colorMap[values.secondVoteName1],
@@ -172,7 +172,7 @@ const BarChart = () => {
         plugins: {
             title: {
                 display: true,
-                text: "Second Vote Analysis",
+                text: "Final Vote Predictions",
                 font: {
                     size: 20,
                 },
