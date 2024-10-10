@@ -9,6 +9,7 @@ import Chat from "./Chatbot/Chat";
 import Homepage from "./home/Homepage";
 import Comparator from "./comparator/Comparator";
 import Aboutus from "./AboutUs/Aboutus";
+import News from "./News/News";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter([
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
     {
         path: "/about",
         element: <Aboutus />,
+        errorElement: "404 Error \n Page not Found.",
+    },
+    {
+        path: "/news",
+        element: <News />,
         errorElement: "404 Error \n Page not Found.",
     },
 ]);

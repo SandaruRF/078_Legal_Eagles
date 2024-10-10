@@ -6,41 +6,66 @@ import nrImage from "../images/nr.jpg";
 import spImage from "../images/sp.jpg";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import Model from "./Model.js";
 
-const candidates = [
+const initialCandidates = [
     {
         image: akdImage,
         name: "Anura Kumara Dissanayake",
         party: "NPP",
-        bgColor: "#C4094A",
+        bgColor: "#c80d4d",
     },
     {
         image: rwImage,
         name: "Ranil Wickramasinghe",
         party: "",
-        bgColor: "#0B7708",
+        bgColor: "#fab002",
     },
     {
         image: nrImage,
         name: "Namal Rajapakshe",
         party: "SLPP",
-        bgColor: "#87171A",
+        bgColor: "#82072b",
     },
     {
         image: spImage,
         name: "Sajith Premadasa",
         party: "SJP",
-        bgColor: "#FED431",
+        bgColor: "#51a303",
     },
 ];
 
-const CandidateList = ({ checkedCandidates, onCandidateClick }) => {
+const CandidateList = ({
+    checkedCandidates,
+    onCandidateClick,
+    onModalCandidateAdd,
+    onModalCandidateRemove,
+    modalCandidates,
+}) => {
+    const [openModal, setOpenModal] = useState(false);
+    const [uploadedFileName, setUploadedFileName] = useState("");
+    const [candidateName, setCandidateName] = useState("");
+    const [isCandidateAdded, setIsCandidateAdded] = useState(false);
+
     const handleScroll = () => {
         window.location.href = "#topics";
     };
 
+    const handleFileUploaded = (fileName, name) => {
+        setUploadedFileName(fileName);
+        setCandidateName(name);
+        onModalCandidateAdd({ name, fileName });
+        setIsCandidateAdded(true);
+    };
+
+    const handleRemoveCandidate = (name) => {
+        onModalCandidateRemove(name);
+        setIsCandidateAdded(false); // Set this to false when candidate is removed
+        setCandidateName("");
+    };
+
     return (
-        <div class="candidate-list">
+        <div className="candidate-list">
             <Card
                 className="text-center"
                 style={{
@@ -68,7 +93,7 @@ const CandidateList = ({ checkedCandidates, onCandidateClick }) => {
                                 justifyContent: "center",
                             }}
                         >
-                            {candidates.map((candidate, index) => (
+                            {initialCandidates.map((candidate, index) => (
                                 <CardCandidate
                                     key={index}
                                     image={candidate.image}
@@ -81,6 +106,49 @@ const CandidateList = ({ checkedCandidates, onCandidateClick }) => {
                             ))}
                         </div>
                     </Card.Text>
+                    <br />
+                    <a
+                        href="#"
+                        className="openModalBtn"
+                        onClick={() =>
+                            isCandidateAdded ? null : setOpenModal(true)
+                        }
+                        style={{
+                            pointerEvents: isCandidateAdded ? "none" : "auto",
+                            color: isCandidateAdded ? "gray" : "blue",
+                        }} // Disable link when a candidate is added
+                    >
+                        {isCandidateAdded
+                            ? `Remove ${candidateName} to add a new one`
+                            : "Click here to add a new candidate"}
+                    </a>
+                    <br />
+                    {openModal && (
+                        <Model
+                            closeModal={setOpenModal}
+                            onFileUploaded={handleFileUploaded}
+                        />
+                    )}
+                    <br></br>
+                    {isCandidateAdded && uploadedFileName && candidateName && (
+                        <div>
+                            <p>
+                                You have added <strong>{candidateName}</strong>{" "}
+                                to compare.
+                            </p>
+
+                            <a
+                                href="##"
+                                onClick={() =>
+                                    handleRemoveCandidate(candidateName)
+                                }
+                            >
+                                Click here to remove{" "}
+                                <strong>{candidateName}</strong>
+                            </a>
+                            <br></br>
+                        </div>
+                    )}
                     <Button
                         variant="primary"
                         size="lg"

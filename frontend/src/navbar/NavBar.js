@@ -47,6 +47,11 @@ export const NavBar = () => {
                             </Link>
                         </Nav.Link>
                         <Nav.Link className="navbar-link">
+                            <Link to={"/news"} style={{ all: "unset" }}>
+                                News
+                            </Link>
+                        </Nav.Link>
+                        <Nav.Link className="navbar-link">
                             <Link to={"/about"} style={{ all: "unset" }}>
                                 About Us
                             </Link>

@@ -27,17 +27,50 @@ const candidates = ["anura", "ranil", "namal", "sajith"];
 const Comparator = () => {
     const [candidateData, setCandidateData] = useState(null);
     const [summaryData, setSummaryData] = useState(null);
-
     const [checkedCandidates, setCheckedCandidates] = useState(
         Array(4).fill(false)
     );
     const [checkedImages, setCheckedImages] = useState(Array(12).fill(false));
     const [formSubmitted, setFormSubmitted] = useState(false);
+    const [modalCandidates, setModalCandidates] = useState([]);
+    const [isSmallScreen, setIsSmallScreen] = useState(
+        window.innerWidth < 1200
+    );
+
+    const handleResize = () => {
+        setIsSmallScreen(window.innerWidth < 1200);
+    };
+
+    useEffect(() => {
+        window.addEventListener("resize", handleResize);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
 
     const handleCandidateSelection = (index) => {
         const newCheckedCandidates = [...checkedCandidates];
         newCheckedCandidates[index] = !newCheckedCandidates[index];
         setCheckedCandidates(newCheckedCandidates);
+    };
+
+    const selectedCandidates = checkedCandidates
+        .map((isChecked, i) => isChecked && candidates[i])
+        .filter(Boolean);
+
+    console.log("Selected Candidates from list:", selectedCandidates);
+    console.log("Selected Modal Candidates:", modalCandidates);
+
+    const handleModalCandidateAdd = (candidate) => {
+        setModalCandidates([...modalCandidates, candidate]);
+        console.log("Modal Candidates after adding:", [
+            ...modalCandidates,
+            candidate,
+        ]);
+    };
+
+    const handleModalCandidateRemove = (name) => {
+        setModalCandidates(modalCandidates.filter((c) => c.name !== name));
     };
 
     const handleTopicSelection = (newCheckedImages) => {
@@ -66,9 +99,9 @@ const Comparator = () => {
 
     const colorMap = {
         anura: "#C4094A",
-        ranil: "#0B7708",
+        ranil: "#FED431",
         namal: "#87171A",
-        sajith: "#FED431",
+        sajith: "#0B7708",
     };
 
     const FullName = {
@@ -83,15 +116,28 @@ const Comparator = () => {
             .map((isChecked, index) => isChecked && candidates[index])
             .filter(Boolean);
 
+        const allCandidates = [
+            ...selectedCandidates,
+            ...modalCandidates.map((c) => c.name),
+        ];
         const selectedFields = texts.filter((_, index) => checkedImages[index]);
 
-        if (selectedCandidates.length < 2) {
+        console.log(
+            "Final selected candidates from checkboxes:",
+            allCandidates
+        );
+
+        if (allCandidates.length < 2) {
             alert("Please select at least 2 candidates.");
             return;
         }
 
         if (selectedFields.length < 1) {
             alert("Please select at least 1 field.");
+            return;
+        }
+        if (selectedFields.length > 4) {
+            alert("Please select maximum 4.");
             return;
         }
 
@@ -102,7 +148,10 @@ const Comparator = () => {
             const response = await fetch("http://127.0.0.1:8000/api/compare", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ selectedFields, selectedCandidates }),
+                body: JSON.stringify({
+                    selectedFields,
+                    selectedCandidates: allCandidates,
+                }),
             });
 
             if (!response.ok) {
@@ -131,6 +180,9 @@ const Comparator = () => {
             <CandidateList
                 checkedCandidates={checkedCandidates}
                 onCandidateClick={handleCandidateSelection}
+                onModalCandidateAdd={handleModalCandidateAdd}
+                onModalCandidateRemove={handleModalCandidateRemove}
+                modalCandidates={modalCandidates}
             />
             <Gallery
                 checkedImages={checkedImages}
@@ -153,7 +205,11 @@ const Comparator = () => {
                             marginBottom: "3rem",
                         }}
                     >
-                        <Spinner animation="border" variant="info" />
+                        <Spinner
+                            animation="border"
+                            variant="info"
+                            style={{ width: "5rem", height: "5rem" }}
+                        />
                         <Card.Title
                             style={{
                                 fontSize: "1.7rem",
@@ -231,10 +287,11 @@ const Comparator = () => {
                                                 }}
                                                 bgColor={
                                                     colorMap[candidateName] ||
-                                                    "#FFFFFF"
+                                                    "#000000"
                                                 }
                                                 fullName={
-                                                    FullName[candidateName]
+                                                    FullName[candidateName] ||
+                                                    candidateName
                                                 }
                                             />
                                         )

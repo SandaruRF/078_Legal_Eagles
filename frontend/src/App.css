@@ -151,7 +151,7 @@ nav.navbar {
     padding: 18px 0;
     width: 100%;
     top: 0;
-    z-index: 9999;
+    z-index: 1000;
     transition: 0.32s ease-in-out;
 }
 nav.navbar.scrolled {
@@ -371,4 +371,46 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .footer {
     background-color: #000000;
     bottom: 0%;
+}
+
+@media (max-width: 768px) {
+    .candidate-grid {
+        display: block; /* Stack elements vertically */
+    }
+    .candidate-card {
+        width: 100%; /* Full width on small screens */
+    }
+}
+
+@media (min-width: 769px) {
+    .candidate-grid {
+        display: grid; /* Display grid layout for larger screens */
+        grid-template-columns: repeat(5, 1fr); /* Adjust grid columns */
+    }
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(200px, 1fr)
+    ); /* Adjusts based on space */
+    gap: 1rem; /* Adjust spacing between cards */
+    max-width: 100%; /* Prevent exceeding boundaries */
+}
+
+.card-summary {
+    width: 98%; /* Adjusted for consistent layout */
+    text-align: left;
+    height: 100%;
+    margin: 0 1rem 1rem 1rem;
+}
+
+@media (max-width: 400px) {
+    .card-container {
+        grid-template-columns: 1fr; /* One column on very small screens */
+    }
+    .CandidateDiv {
+        width: 100%; /* Full width */
+    }
 }

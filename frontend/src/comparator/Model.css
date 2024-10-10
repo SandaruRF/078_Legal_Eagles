@@ -1,0 +1,200 @@
+.modalBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1500;
+    animation: fadeInBackground 0.3s ease; /* Fade-in when modal opens */
+}
+
+.modalContainer {
+    width: 90%; /* Use a percentage for responsiveness */
+    max-width: 600px; /* Set a max-width for larger screens */
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    animation: slideIn 0.3s ease; /* Slide-in when modal opens */
+    align-items: center; /* Center items horizontally */
+}
+
+.titleCloseBtn {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%; /* Full width to align the close button */
+}
+
+.titleCloseBtn button {
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+    color: crimson; /* Red color for close button */
+}
+
+/* Keyframe animations */
+@keyframes fadeInBackground {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px); /* Slide up */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade-out animations */
+.fadeOut {
+    animation: fadeOutBackground 0.3s ease forwards;
+}
+
+@keyframes fadeOutBackground {
+    from {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+.slideOut {
+    animation: slideOut 0.3s ease forwards;
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(50px); /* Slide down */
+    }
+}
+
+/* Button styles */
+button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    opacity: 0.8; /* Slight hover effect */
+}
+
+#cancelBtn {
+    background-color: crimson; /* Red background for Cancel button */
+    color: white;
+    width: 100%; /* Full width */
+    margin-top: 10px; /* Space above the button */
+}
+
+#cancelBtn:hover {
+    background-color: darkred; /* Darker red on hover */
+}
+
+.continueBtn {
+    background-color: cornflowerblue; /* Blue background for Continue button */
+    color: white;
+    width: 100%; /* Full width */
+    margin-top: 10px; /* Space above the button */
+}
+
+.continueBtn:hover {
+    background-color: royalblue; /* Darker blue on hover */
+}
+
+/* Form styling */
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Stretch inputs to full width */
+    width: 100%; /* Full width */
+}
+
+.body label {
+    margin-bottom: 5px; /* Space between label and input */
+    font-weight: bold; /* Bold labels for better visibility */
+}
+
+.body input[type="text"],
+.body input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px; /* Space between inputs */
+    width: 100%; /* Full width for inputs */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.dropzone {
+    border: 2px dashed #ccc; /* Dashed border */
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px; /* Space between dropzone and next element */
+    cursor: pointer; /* Pointer cursor for the dropzone */
+    transition: background-color 0.3s ease; /* Smooth background color change */
+    min-height: 100px; /* Set a minimum height for the dropzone */
+}
+
+.dropzone:hover {
+    background-color: rgba(200, 200, 200, 0.2); /* Light gray background on hover */
+}
+
+.fileInputLabel {
+    display: inline-block;
+    margin-top: 10px; /* Space above the label */
+    color: cornflowerblue; /* Color for the clickable label */
+    text-decoration: underline; /* Underlined text to indicate it's clickable */
+    cursor: pointer; /* Pointer cursor */
+}
+
+.fileInfo {
+    display: flex; /* Use flex to align items horizontally */
+    justify-content: space-between; /* Space between file name and button */
+    align-items: center; /* Center items vertically */
+    width: 100%; /* Full width */
+    margin-bottom: 20px; /* Space below the file info */
+}
+
+.removeFileBtn {
+    background-color: crimson; /* Red background for Remove button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.removeFileBtn:hover {
+    opacity: 0.8; /* Slight hover effect */
+}
+
+.errorMessage {
+    color: crimson; /* Red color for the error message */
+    margin-top: 10px; /* Space above the error message */
+    font-size: 14px; /* Adjust font size as needed */
+}
+
