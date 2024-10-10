@@ -1,0 +1,80 @@
+
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
+  }
+  
+  .fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+  }
+
+
+  #desc{
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+ .head{
+    color:#C80C4C;
+    font-weight: bold;
+    font-size: 2.2rem;
+  }
+
+  #title{
+    color: green;
+    font-family:monospace;
+    font-size: 3rem;
+  }
+
+  #validVotes{
+    margin-top: 3%;
+    font-size: 2.2rem;
+  }
+
+
+.cardds {
+    margin: 20px auto; 
+}
+
+.card-img-top {
+    width: 100%; 
+    height: auto; 
+}
+
+
+@media (max-width: 576px) {
+    #title {
+        font-size: 1.5rem;
+    }
+
+    .description {
+        font-size: 0.9rem; 
+    }
+
+     .head{
+        font-size: 1.2rem;
+        text-align: center; 
+    }
+}
+
+@media (min-width: 576px) {
+    #title {
+        font-size: 2rem;
+    }
+
+    .description {
+        font-size: 1rem; 
+    }
+
+     .head{
+        font-size: 1.5rem; 
+        text-align: center; 
+    }
+}
+
+.custom-card {
+    max-width: 60rem; 
+    margin: 20px auto;
+}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import CardCandidate from "./CardCandidate";
 import akdImage from "../images/akd.jpeg";
 import rwImage from "../images/rw.jpg";
@@ -7,6 +7,7 @@ import spImage from "../images/sp.jpg";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Model from "./Model.js";
+import { ThemeContext } from "../ThemeContext";
 
 const initialCandidates = [
     {
@@ -42,6 +43,7 @@ const CandidateList = ({
     onModalCandidateRemove,
     modalCandidates,
 }) => {
+    const { theme } = useContext(ThemeContext);
     const [openModal, setOpenModal] = useState(false);
     const [uploadedFileName, setUploadedFileName] = useState("");
     const [candidateName, setCandidateName] = useState("");
@@ -69,7 +71,7 @@ const CandidateList = ({
             <Card
                 className="text-center"
                 style={{
-                    backgroundColor: "#EEEEEE",
+                    backgroundColor: theme === "dark" ? "#424242" : "#EEEEEE",
                     marginRight: "5rem",
                     marginLeft: "5rem",
                     marginTop: "3rem",
@@ -78,11 +80,19 @@ const CandidateList = ({
                 <Card.Body>
                     <br />
                     <Card.Title
-                        style={{ fontSize: "1.7rem", fontWeight: "bold" }}
+                        style={{
+                            fontSize: "1.7rem",
+                            fontWeight: "bold",
+                            color: theme === "dark" ? "white" : "black",
+                        }}
                     >
                         Select Candidates to Compare
                     </Card.Title>
-                    <Card.Text>Select at least 2 candidates</Card.Text>
+                    <Card.Text
+                        style={{ color: theme === "dark" ? "white" : "black" }}
+                    >
+                        Select at least 2 candidates
+                    </Card.Text>
                     <br />
                     <Card.Text>
                         <div
@@ -107,48 +117,47 @@ const CandidateList = ({
                         </div>
                     </Card.Text>
                     <br />
-                    <a
-                        href="#"
-                        className="openModalBtn"
-                        onClick={() =>
-                            isCandidateAdded ? null : setOpenModal(true)
-                        }
-                        style={{
-                            pointerEvents: isCandidateAdded ? "none" : "auto",
-                            color: isCandidateAdded ? "gray" : "blue",
-                        }} // Disable link when a candidate is added
-                    >
-                        {isCandidateAdded
-                            ? `Remove ${candidateName} to add a new one`
-                            : "Click here to add a new candidate"}
-                    </a>
-                    <br />
+                    <Card style={{ width: "60%", margin: "0 auto" }}>
+                        <Card.Body className="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                            <div
+                                className="mb-3 mb-md-0"
+                                style={{ fontWeight: "bold" }}
+                            >
+                                {isCandidateAdded
+                                    ? `You have added ${candidateName} to compare.`
+                                    : "Add a New Candidate"}
+                            </div>
+                            <Button
+                                variant="primary"
+                                onClick={() =>
+                                    isCandidateAdded
+                                        ? handleRemoveCandidate(candidateName)
+                                        : setOpenModal(true)
+                                }
+                                className="w-100 w-md-auto" // Ensures full width on small screens, adjusts on larger screens
+                                style={{
+                                    backgroundColor: isCandidateAdded
+                                        ? "red"
+                                        : "#387BDC",
+                                    fontWeight: "bold",
+                                    color: "white",
+                                    maxWidth: "200px",
+                                }}
+                            >
+                                {isCandidateAdded
+                                    ? "Remove Candidate"
+                                    : "Add New Candidate"}
+                            </Button>
+                        </Card.Body>
+                    </Card>
+
                     {openModal && (
                         <Model
-                            closeModal={setOpenModal}
+                            closeModal={() => setOpenModal(false)}
                             onFileUploaded={handleFileUploaded}
                         />
                     )}
-                    <br></br>
-                    {isCandidateAdded && uploadedFileName && candidateName && (
-                        <div>
-                            <p>
-                                You have added <strong>{candidateName}</strong>{" "}
-                                to compare.
-                            </p>
 
-                            <a
-                                href="##"
-                                onClick={() =>
-                                    handleRemoveCandidate(candidateName)
-                                }
-                            >
-                                Click here to remove{" "}
-                                <strong>{candidateName}</strong>
-                            </a>
-                            <br></br>
-                        </div>
-                    )}
                     <Button
                         variant="primary"
                         size="lg"

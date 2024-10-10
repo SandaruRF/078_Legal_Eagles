@@ -1,0 +1,56 @@
+.predictButtn-light, .predictButtn-dark {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    margin-bottom: 5%;
+    font-size: 20px;
+}
+
+.predictButtn-light button {
+    font-weight: 700;
+    color: #000000;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    padding: 18px 34px;
+    background-color: #e5e5e5;
+    transition: 0.3s ease-in-out;
+}
+
+.predictButtn-light button:hover {
+    color: #ffffff;
+    background-color: #000000;
+    transition: 0.3s ease-in-out;
+}
+
+/* Dark theme button styles */
+.predictButtn-dark button {
+    font-weight: 700;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 20px;
+    padding: 18px 34px;
+    background-color: #424242;
+    transition: 0.3s ease-in-out;
+}
+
+.predictButtn-dark button:hover {
+    color: #000000;
+    background-color: #ffffff;
+    transition: 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .predictButtn-light button,
+    .predictButtn-dark button {
+        padding: 14px 28px;
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .predictButtn-light button,
+    .predictButtn-dark button {
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+}

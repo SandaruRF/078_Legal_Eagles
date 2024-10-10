@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import CandidateList from "./CandidateList";
 import Gallery from "./Gallery";
 import CandidateDiv from "./Candidatediv";
@@ -6,6 +6,7 @@ import Card from "react-bootstrap/Card";
 import Spinner from "react-bootstrap/Spinner";
 import { NavBar } from "../navbar/NavBar";
 import Footer from "../footer/Footer";
+import { ThemeContext } from "../ThemeContext";
 
 const texts = [
     "Economy",
@@ -25,6 +26,8 @@ const texts = [
 const candidates = ["anura", "ranil", "namal", "sajith"];
 
 const Comparator = () => {
+    const { theme } = useContext(ThemeContext);
+
     const [candidateData, setCandidateData] = useState(null);
     const [summaryData, setSummaryData] = useState(null);
     const [checkedCandidates, setCheckedCandidates] = useState(
@@ -175,7 +178,9 @@ const Comparator = () => {
     };
 
     return (
-        <div>
+        <div
+            style={{ backgroundColor: theme === "dark" ? "#212121" : "white" }}
+        >
             <NavBar />
             <CandidateList
                 checkedCandidates={checkedCandidates}
@@ -198,7 +203,8 @@ const Comparator = () => {
                         body
                         className="text-center"
                         style={{
-                            backgroundColor: "#EEEEEE",
+                            backgroundColor:
+                                theme === "dark" ? "#424242" : "#EEEEEE",
                             marginRight: "5rem",
                             marginLeft: "5rem",
                             marginTop: "3rem",
@@ -212,6 +218,7 @@ const Comparator = () => {
                         />
                         <Card.Title
                             style={{
+                                color: theme === "dark" ? "white" : "black",
                                 fontSize: "1.7rem",
                                 fontWeight: "bold",
                             }}
@@ -226,7 +233,8 @@ const Comparator = () => {
                         body
                         className="text-center"
                         style={{
-                            backgroundColor: "#EEEEEE",
+                            backgroundColor:
+                                theme === "dark" ? "#424242" : "#EEEEEE",
                             marginRight: "5rem",
                             marginLeft: "5rem",
                             marginTop: "3rem",
@@ -237,6 +245,7 @@ const Comparator = () => {
                             style={{
                                 fontSize: "1.7rem",
                                 fontWeight: "bold",
+                                color: theme === "dark" ? "white" : "black",
                             }}
                         >
                             Comparator Results
@@ -248,7 +257,8 @@ const Comparator = () => {
                         <Card
                             className="text-center"
                             style={{
-                                backgroundColor: "#EEEEEE",
+                                backgroundColor:
+                                    theme === "dark" ? "#424242" : "#EEEEEE",
                                 marginRight: "5rem",
                                 marginLeft: "5rem",
                                 marginTop: "3rem",
@@ -261,6 +271,10 @@ const Comparator = () => {
                                     style={{
                                         fontSize: "1.7rem",
                                         fontWeight: "bold",
+                                        color:
+                                            theme === "dark"
+                                                ? "white"
+                                                : "black",
                                     }}
                                 >
                                     {field}
@@ -304,12 +318,19 @@ const Comparator = () => {
                                     textAlign: "left",
                                     height: "100%",
                                     margin: "0 1rem 1rem 1rem",
+                                    color: theme === "dark" ? "white" : "black",
+                                    backgroundColor:
+                                        theme === "dark" ? "#323232" : "white",
                                 }}
                             >
                                 <Card.Header
                                     style={{
                                         fontSize: "1.3rem",
                                         fontWeight: "bold",
+                                        backgroundColor:
+                                            theme === "dark"
+                                                ? "#272727"
+                                                : "#EEEEEE",
                                     }}
                                 >
                                     Summary of {field}

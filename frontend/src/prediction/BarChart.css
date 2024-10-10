@@ -1,0 +1,42 @@
+
+.card-text {
+    font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+    .card-text {
+        font-size: 1rem; 
+    }
+}
+
+@media (min-width: 600px) {
+    .card-text {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .card-text {
+        font-size: 1.25rem; 
+    }
+}
+
+.card-custom {
+    width: 100%;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+    padding: 20px;
+    width: "100%";
+    margin-top: "3rem";
+    margin-bottom: "5rem";
+}
+
+.card-light {
+    background-color: #eeeeee;
+    color: black;
+}
+
+.card-dark {
+    background-color: #333333;
+    color: white;
+}

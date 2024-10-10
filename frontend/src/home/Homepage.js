@@ -1,41 +1,32 @@
-import React, { useState, useRef } from 'react';
+import React, { useContext} from 'react';
+import { ThemeContext } from "../ThemeContext";
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {NavBar} from "../navbar/NavBar";
-import {Banner} from "./Banner";
+import { NavBar } from "../navbar/NavBar";
+import Heading from "./Heading";
 import Footer from "../footer/Footer";
-import BarChart from './BarChart';
-
+import ResultGraph from './ResultGraph';
+import Winner from './winner';
 
 function Homepage() {
-  const [showChart, setShowChart] = useState(false);
-  const chartRef = useRef(null);
+    const { theme } = useContext(ThemeContext);
 
-  const handleShowChart = () => {
-    setTimeout(() => {
-      setShowChart(true); 
+    const backgroundColor = theme === 'dark' ? '#212121' : 'white';
 
-      setTimeout(() => {
-        if (chartRef.current) {
-          chartRef.current.scrollIntoView({ behavior: 'smooth' }); 
-        }
-      }, 100); 
-    }, 3500); 
-  };
+    return (
+       
+        <div className={`App ${theme}`} style={{backgroundColor}}>
+            <NavBar/>
+            <Heading/>
+            <div className="graphWinner-container" style={{backgroundColor}}>
+                <ResultGraph/>
+                <Winner/>
+            </div>
 
-  return (
-    <div className="App">
-      <NavBar/>
-      <Banner onShowChart={handleShowChart} isChartLoaded={showChart} />
-
-      {showChart && (
-        <div ref={chartRef}>
-          <BarChart />
+            <br />
+            <Footer/>
         </div>
-      )}
-      <Footer/>
-    </div>
-  );
+    );
 }
 
 export default Homepage;

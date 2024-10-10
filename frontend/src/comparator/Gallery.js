@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import CheckImages from "./Checkimages";
 import RadioButton from "./RadioButton";
 import Card from "react-bootstrap/Card";
@@ -16,8 +16,10 @@ import picture9 from "../images/science.jpeg";
 import picture10 from "../images/social.jpeg";
 import picture11 from "../images/privategovernmentBussiness.jpeg";
 import picture12 from "../images/nature.jpeg";
+import { ThemeContext } from "../ThemeContext";
 
 const Gallery = ({ checkedImages, onTopicChange, onSubmit }) => {
+    const { theme } = useContext(ThemeContext);
     const [isRadioSelected, setIsRadioSelected] = useState(false);
     const [isButtonClicked, setIsButtonClicked] = useState(false);
     const images = [
@@ -75,7 +77,7 @@ const Gallery = ({ checkedImages, onTopicChange, onSubmit }) => {
                 id="topics"
                 className="text-center"
                 style={{
-                    backgroundColor: "#EEEEEE",
+                    backgroundColor:theme === 'dark' ?'#424242':'#EEEEEE',
                     marginRight: "5rem",
                     marginLeft: "5rem",
                     marginTop: "3rem",
@@ -83,10 +85,10 @@ const Gallery = ({ checkedImages, onTopicChange, onSubmit }) => {
                 }}
             >
                 <br></br>
-                <Card.Title style={{ fontSize: "1.7rem", fontWeight: "bold" }}>
+                <Card.Title style={{ fontSize: "1.7rem", fontWeight: "bold", color:theme === 'dark' ?'white':'black' }}>
                     Select branches you need to compare{" "}
                 </Card.Title>
-                <Card.Text>Select at Least 1 Branch</Card.Text>
+                <Card.Text style={{color:theme === 'dark' ?'white':'black'}}>Select at Least 1 Branch</Card.Text>
                 <div>
                     <RadioButton
                         isRadioSelected={isRadioSelected}

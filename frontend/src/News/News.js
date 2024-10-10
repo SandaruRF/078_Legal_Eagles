@@ -1,28 +1,37 @@
 import { NavBar } from "../navbar/NavBar";
 import NewsCard from "./NewsCard";
 import { Col, Row, Form, Pagination } from "react-bootstrap";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Card from "react-bootstrap/Card";
 import Footer from "../footer/Footer";
 import Spinner from "react-bootstrap/Spinner";
+import { ThemeContext } from "../ThemeContext";
+import './News.css';
 
 const News = () => {
+    const { theme } = useContext(ThemeContext);
     const [newsData, setNewsData] = useState([]);
     const [searchQuery, setSearchQuery] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     const [loading, setLoading] = useState(true);
-    const itemsPerPage = 8; // Change this value to adjust the number of items per page
+    const [error, setError] = useState(false); // Add error state
+    const itemsPerPage = 8;
 
     // Fetch the news from backend
     useEffect(() => {
         const fetchNews = async () => {
             try {
                 setLoading(true);
+                setError(false); // Reset error state before fetching
                 const response = await fetch("http://localhost:8000/news");
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
                 const data = await response.json();
                 setNewsData(data);
             } catch (error) {
                 console.error("Error fetching news:", error);
+                setError(true); // Set error state on failure
             } finally {
                 setLoading(false);
             }
@@ -34,36 +43,21 @@ const News = () => {
     // Function to determine the color based on category
     const getBorderColor = (category) => {
         switch (category) {
-            case "Education":
-                return "darkgreen"; // Green
-            case "Agriculture":
-                return "#8bc34a"; // Light Green
-            case "Economy":
-                return "#ff9800"; // Orange
-            case "Science and Technology":
-                return "#9c27b0"; // Purple
-            case "Environment":
-                return "#4caf50"; // Green
-            case "Social Empowerment":
-                return "#03a9f4"; // Light Blue
-            case "Energy":
-                return "darkcyan";
-            case "Defence":
-                return "#f44336"; // Red
-            case "Tourism":
-                return "#00bcd4"; // Cyan
-            case "Private and Government Sectors":
-                return "#795548"; // Brown
-            case "Foreign Relationships":
-                return "#673ab7"; // Deep Purple
-            case "Politics":
-                return "#3f51b5"; // Indigo
-            case "Transport":
-                return "#2a2a4f";
-            case "Health":
-                return "#000000";
-            default:
-                return "#9e9e9e"; // Grey as default
+            case "Education": return "darkgreen";
+            case "Agriculture": return "#8bc34a";
+            case "Economy": return "#ff9800";
+            case "Science and Technology": return "#9c27b0";
+            case "Environment": return "#4caf50";
+            case "Social Empowerment": return "#03a9f4";
+            case "Energy": return "darkcyan";
+            case "Defence": return "#f44336";
+            case "Tourism": return "#00bcd4";
+            case "Private and Government Sectors": return "#795548";
+            case "Foreign Relationships": return "#673ab7";
+            case "Politics": return "#3f51b5";
+            case "Transport": return "#2a2a4f";
+            case "Health": return "#000000";
+            default: return "#9e9e9e"; // Grey as default
         }
     };
 
@@ -85,32 +79,36 @@ const News = () => {
 
     const handlePageChange = (page) => {
         setCurrentPage(page);
-        window.scrollTo(0, 0); // Scroll to top when page changes
+        window.scrollTo(0, 0);
     };
 
     return (
-        <>
+        <div style={{ backgroundColor: theme === "dark" ? "#212121" : "white" }}>
             <NavBar />
             <Card
                 body
                 style={{
-                    backgroundColor: "#EEEEEE",
-                    color: "black",
+                    backgroundColor: theme === "dark" ? "#323232" : "#EEEEEE",
+                    color: theme === "dark" ? "white" : "black",
                     fontWeight: "bold",
                     margin: "1rem 4rem",
                     fontSize: "120%",
                 }}
             >
-                Post-Election Review: News, Vote Value, and Comparing Actions
-                with Manifesto
+                Post-Election Review: News, Vote Value, and Comparing Actions with Manifesto
             </Card>
             <Form style={{ margin: "1rem" }}>
                 <Form.Group controlId="search" style={{ margin: "0 3rem" }}>
                     <Form.Control
+                        className={theme === "dark" ? "custom-placeholder-dark" : "custom-placeholder-light"}
                         type="text"
                         placeholder="Search by Category or News..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
+                        style={{
+                            backgroundColor: theme === "dark" ? "#323232" : "#EEEEEE",
+                            color: theme === "dark" ? "white" : "black",
+                        }}
                     />
                 </Form.Group>
             </Form>
@@ -121,7 +119,7 @@ const News = () => {
                         flexDirection: "column",
                         justifyContent: "center",
                         alignItems: "center",
-                        height: "100%", // Ensure it takes full height of the card body
+                        height: "100%", 
                         margin: "0 auto",
                     }}
                 >
@@ -136,8 +134,8 @@ const News = () => {
                         style={{
                             marginTop: "15px",
                             fontSize: "1.2rem",
-                            color: "#000000",
-                            textAlign: "center", // Ensures the text is also centered
+                            color: theme === "dark" ? "white" : "black",
+                            textAlign: "center",
                         }}
                     >
                         Please hold on... <br />
@@ -145,6 +143,26 @@ const News = () => {
                     </Card.Text>
                     <br />
                     <br />
+                </Card.Body>
+            ) : error ? ( // Show error message if there's an error
+                <Card.Body
+                    style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        height: "100%",
+                    }}
+                >
+                    <Card.Text
+                        style={{
+                            fontSize: "1.5rem",
+                            color: theme === "dark" ? "white" : "black",
+                            textAlign: "center",
+                        }}
+                    >
+                        Something went wrong. <br />
+                        Please try again later.
+                    </Card.Text>
                 </Card.Body>
             ) : (
                 <Row g={1} style={{ margin: "0 3rem" }}>
@@ -156,7 +174,6 @@ const News = () => {
                                 title={news.title}
                                 category={news.category}
                                 link={news.link}
-                                // Pass a unique identifier for each card based on its index and page
                                 key={`news-${currentPage}-${index}`}
                             />
                         </Col>
@@ -165,9 +182,7 @@ const News = () => {
             )}
             <Pagination style={{ justifyContent: "center", margin: "1rem" }}>
                 <Pagination.Prev
-                    onClick={() =>
-                        handlePageChange(Math.max(currentPage - 1, 1))
-                    }
+                    onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
                     disabled={currentPage === 1}
                 />
                 {[...Array(totalPages)].map((_, index) => (
@@ -180,14 +195,12 @@ const News = () => {
                     </Pagination.Item>
                 ))}
                 <Pagination.Next
-                    onClick={() =>
-                        handlePageChange(Math.min(currentPage + 1, totalPages))
-                    }
+                    onClick={() => handlePageChange(Math.min(currentPage + 1, totalPages))}
                     disabled={currentPage === totalPages}
                 />
             </Pagination>
             <Footer />
-        </>
+        </div>
     );
 };
 

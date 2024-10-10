@@ -424,7 +424,7 @@ async def askQuestion(question:str):
     if(question=='Bye' or question=='bye'):
         return {"Answer":"Good Bye"}
     
-    question += "\n(If the user asks about anything other than the election, inform them that you are here to answer questions related to the election. Do not provide answers on topics outside the scope of the 2024 presidential election.)"
+    question += "\nimportant - If the user asks about anything other than the election, inform them that you are here to answer questions related to the election. Do not provide answers on topics outside the scope of the 2024 presidential election."
     result = conversational_rag_chain.invoke(
         {"input": question},
         config={"configurable": {"session_id": "101"}},

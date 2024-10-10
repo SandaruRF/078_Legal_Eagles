@@ -3,8 +3,11 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Spinner from "react-bootstrap/Spinner";
+import { ThemeContext } from "../ThemeContext";
+import React, {useContext } from "react";
 
 const NewsCard = ({ border, image, title, category, link }) => {
+    const { theme } = useContext(ThemeContext);
     const [isAccordionOpen, setAccordionOpen] = useState(false);
     const [comparisonResult, setComparisonResult] = useState(null); // State to hold comparison result
     const [loading, setLoading] = useState(false); // State to manage loading
@@ -53,7 +56,8 @@ const NewsCard = ({ border, image, title, category, link }) => {
     return (
         <Card
             style={{
-                backgroundColor: "#EEEEEE",
+                backgroundColor: theme === "dark" ? "#424242" : "#EEEEEE",
+                color: theme === "dark" ? "white" : "black",
                 border: `1.9px solid ${border}`,
                 borderRadius: "5px",
                 margin: "0.5rem 0",
@@ -111,10 +115,10 @@ const NewsCard = ({ border, image, title, category, link }) => {
             <Accordion defaultActiveKey={null} style={{ margin: "1rem" }}>
                 <Accordion.Item
                     eventKey="0"
-                    style={{ border: "1px solid #008000" }}
+                    style={{ border: "1px solid #008000"}}
                 >
                     <Accordion.Header onClick={handleAccordionToggle}>
-                        <span style={{ fontWeight: "bold" }}>
+                        <span style={{ fontWeight: "bold"}}>
                             Compare with Manifesto
                         </span>
                     </Accordion.Header>

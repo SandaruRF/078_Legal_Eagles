@@ -9,7 +9,10 @@ import Chat from "./Chatbot/Chat";
 import Homepage from "./home/Homepage";
 import Comparator from "./comparator/Comparator";
 import Aboutus from "./AboutUs/Aboutus";
+import BarChart from "./prediction/BarChart";
 import News from "./News/News";
+
+import { ThemeProvider } from "./ThemeContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter([
@@ -29,19 +32,26 @@ const router = createBrowserRouter([
         errorElement: "404 Error \n Page not Found.",
     },
     {
-        path: "/about",
-        element: <Aboutus />,
+        path: "/prediction",
+        element: < BarChart/>,
         errorElement: "404 Error \n Page not Found.",
     },
     {
         path: "/news",
-        element: <News />,
+        element: < News/>,
+        errorElement: "404 Error \n Page not Found.",
+    },
+    {
+        path: "/about",
+        element: <Aboutus />,
         errorElement: "404 Error \n Page not Found.",
     },
 ]);
 root.render(
     <React.StrictMode>
+        <ThemeProvider>
         <RouterProvider router={router} />
+        </ThemeProvider>
     </React.StrictMode>
 );
 
