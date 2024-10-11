@@ -1,8 +1,11 @@
-from fastapi import FastAPI
+import json
+import shutil
+from typing import List
+from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from fastapi.responses import HTMLResponse
-from rag import getAnswer, getSummary
+from rag import category_news, compare_news, create_knowledge_base_new_pdf, getAnswer, getSummary
 import pandas as pd
 import joblib
 from langchain_core.documents import Document
@@ -24,6 +27,14 @@ from langchain_core.chat_history import BaseChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
+from motor.motor_asyncio import AsyncIOMotorClient
+from pydantic import BaseModel
+from pymongo import DESCENDING
+import requests
+import feedparser
+from bs4 import BeautifulSoup
+import pymongo
+import asyncio
 
 load_dotenv()
 
@@ -33,6 +44,25 @@ llm=ChatGoogleGenerativeAI(
     api_key=APIKEY
 )
 
+MONGODB_URL = "mongodb+srv://ex4mp1e:example123@cluster0.k6qa5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+FEED_URL = "https://www.adaderana.lk/rss.php"
+UPLOAD_DIRECTORY = "./uploads"
+
+
+client = AsyncIOMotorClient(MONGODB_URL)
+
+# Define your database and collection
+db = client.news
+collection = db.politicsNews
+
+# Define Pydantic model
+class NewsItem(BaseModel):
+    title: str
+    description: str = None
+    link: str
+    image_url: str
+    cmp_manifesto: str = None
+    category: str = None  # Optional category field
 
 
 embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
@@ -146,7 +176,7 @@ print("If you want to leave, enter 'Bye'.")
 
 
 
-test_df = pd.read_csv('model/present_election_dataset1.csv')  #importing the dataset csv file to input to the model
+test_df = pd.read_csv('model/present_election_dataset.csv')  #importing the dataset csv file to input to the model
 
 model = joblib.load('model/final_percentage_predictor.pkl') #importing the model
 
@@ -255,6 +285,9 @@ class Selection(BaseModel):
     selectedFields: list[str]
     selectedCandidates: list[str]
 
+class News(BaseModel):
+    title: str
+    category: str
 
 app = FastAPI()
 
@@ -266,6 +299,28 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.post("/upload/")
+async def upload_file(file: UploadFile = File(...)):
+    print(f"Uploaded file:")
+    if not file.filename.endswith(".pdf"):
+        raise HTTPException(status_code=400, detail="Only PDF files are allowed.")
+
+    # Define the file path (you can hardcode the file name or use a unique name)
+    file_path = os.path.join(UPLOAD_DIRECTORY, f"{file.filename}.pdf")
+
+    # Check if a file already exists and remove it
+    if os.path.exists(file_path):
+        os.remove(file_path)  # Delete the existing file
+
+    # Save the new file
+    with open(file_path, "wb") as buffer:
+        shutil.copyfileobj(file.file, buffer)
+        print(f"Uploaded file: {file.filename}")
+
+    return {"filename": file.filename}
+
 
 @app.post("/api/compare")
 async def receive_selection(selection: Selection):
@@ -284,6 +339,16 @@ async def receive_selection(selection: Selection):
             name = "Ranil Wickramasinghe"
         else:
             name = "Namal Rajapakshe (SLPP candidate)"
+
+        candidates_to_exclude = [
+        "Anura Kumara Dissanayake (NPP candidate)",
+        "Sajith Premadasa (SJP candidate)",
+        "Ranil Wickramasinghe",
+        "Namal Rajapakshe (SLPP candidate)"
+        ]
+
+        if name not in candidates_to_exclude:
+            create_knowledge_base_new_pdf()
 
         for field in selection.selectedFields:
             query = f"What are {name}'s goals and plans in the {'protection security defence' if field == 'Defense' or field == 'defence' else field} field?"
@@ -315,6 +380,31 @@ async def receive_selection(selection: Selection):
         "summary": summary_details
     }
 
+
+@app.post("/api/newscomp")
+async def cmp_news_manifesto(news: News):
+    title = news.title
+    category = news.category
+
+    # Fetch the news article based on the title
+    data = await collection.find_one({"title": title})
+    
+    # Check if the article exists
+    if not data:
+        return {"message": "News article not found", "data": None}
+
+    # Prepare the news content
+    news_content = f"{title}\n{data['description']}"
+    
+    # Call the function to compare news with the manifesto
+    answer = compare_news(news_content, category)
+    
+    return {
+        "message": "Selection received",
+        "data": answer
+    }
+
+
 @app.get("/get-values")
 async def get_values():   
     return {
@@ -334,13 +424,94 @@ async def askQuestion(question:str):
     if(question=='Bye' or question=='bye'):
         return {"Answer":"Good Bye"}
     
-    question += "\n(If the user asks about anything other than the election, inform them that you are here to answer questions related to the election. Do not provide answers on topics outside the scope of the 2024 presidential election.)"
+    question += "\nimportant - If the user asks about anything other than the election, inform them that you are here to answer questions related to the election. Do not provide answers on topics outside the scope of the 2024 presidential election."
     result = conversational_rag_chain.invoke(
         {"input": question},
         config={"configurable": {"session_id": "101"}},
     )   
 
     return {"Answer":result["answer"]}
+
+@app.get("/news", response_model=List[NewsItem])
+async def get_news():
+    try:
+        articles_cursor = collection.find().sort("_id", DESCENDING)
+        articles = await articles_cursor.to_list(length=None) 
+        return articles
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# Function to extract image link from description (if any)
+def extract_image_link(description):
+    soup = BeautifulSoup(description, 'html.parser')
+    img_tag = soup.find('img')
+    return img_tag['src'] if img_tag else None
+
+
+async def fetch_and_classify_news():
+    while True:
+        # Fetch the latest news from the RSS feed
+        feed = feedparser.parse(FEED_URL)
+        new_articles = []  # Initialize as a list
+
+        # Store only new articles to send to LLM
+        for entry in feed.entries:
+            # Check if the news item already exists in the database
+            exists = await collection.count_documents({"title": entry.title, "link": entry.link}) > 0
+    
+            if not exists:
+                # If not in the database, add it to the new_articles list
+                article = {
+                    "title": entry.title,
+                    "description": entry.description,
+                    "link": entry.link,
+                    "image_url": extract_image_link(entry.description),
+                    "category": ""  # Initial blank category
+                }
+                new_articles.append(article)  # Append to the list
+
+        if not new_articles:
+            print("No new articles found.")
+        else:
+            try:
+                formatted_articles = "\n\n".join(
+                    [
+                        f"Title: {article['title']}\nDescription: {article['description']}\nlink: {article['link']}\nimage_url: {article['image_url']}\ncategory: \"\""
+                        for article in new_articles
+                    ]
+                )
+                news = category_news(formatted_articles)  # Await the LLM call
+                
+                with open('temp.json', 'w', encoding='utf-8') as f:
+                    f.write(news)
+                
+                # Read the articles from temp.json
+                with open('temp.json', 'r', encoding='utf-8') as f:
+                    temp_data = json.load(f)  # Load the JSON data
+                    classified_articles = temp_data['articles']  # Get the articles list
+
+                # Filter out articles with valid categories
+                classified_articles = [
+                    article for article in classified_articles if article['category']
+                ]
+
+                # Store classified articles in MongoDB
+                if classified_articles:
+                    await collection.insert_many(classified_articles)  # Await the MongoDB insert
+                    print(f"Inserted {len(classified_articles)} new articles into MongoDB.")
+                else:
+                    print("No articles with valid categories found.")
+            except Exception as e:
+                print(f"Error in processing articles: {e}")
+
+        # Sleep for 1 hour before checking again
+        await asyncio.sleep(3600)
+
+@app.on_event("startup")
+async def startup_event():
+    # Start fetching news in the background
+    asyncio.create_task(fetch_and_classify_news())
 
 
 @app.get("/")

@@ -1,10 +1,92 @@
-.chat-page {
+.footer-text-bot {
+    font-size: 1rem;
+    margin-top: 0;
+}
+
+.title-row {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.watermark-container-light,
+.watermark-container-dark {
+    position: relative;
+    overflow: hidden;
+}
+
+.watermark-container-dark {
+    background-color: #303030;
+}
+
+.watermark-container-light {
     background-color: white;
-    color: black;
+}
+
+.watermark-container-light::before,
+.watermark-container-dark::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: translate(-50%, -50%);
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.watermark-container-light::before {
+    background-image: url("../images/logo.png");
+}
+
+.watermark-container-dark::before {
+    background-image: url("../images/dark-logo.png");
+}
+
+@media screen and (min-width: 1250px) {
+    .watermark-container-light::before,
+    .watermark-container-dark::before {
+        transform: translate(-28%, -50%);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .watermark-container-light::before,
+    .watermark-container-dark::before {
+        transform: translate(-50%, -30%);
+    }
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+.chat-page-dark {
+    background-color: #303030;
+    color: rgb(255, 255, 255);
     height: 100vh;
     padding-top: 30px;
 }
-.title-container {
+
+.chat-page-light {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    height: 100vh;
+    padding-top: 30px;
+}
+
+.theme-label-dark {
+    color: white;
+}
+
+.theme-label-light {
+    color: black;
+}
+
+.title-container-light {
     margin: 0;
     padding: 0;
     background-color: #b6b4b4;
@@ -15,11 +97,19 @@
     z-index: 1;
     box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.chat-page-light {
-    background-color: rgb(186, 183, 183);
-    color: black;
-    height: 100vh;
+
+.title-container-dark {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    position: absolute;
+    width: 100vw;
+    height: 8vh;
+    top: 0;
+    z-index: 1;
+    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 .chat-section {
     padding-top: 50px;
     height: 90vh;
@@ -38,7 +128,7 @@
     width: 118%;
     border: 1px solid rgb(91, 100, 107);
     background-color: white;
-    color: Black;
+    color: rgb(0, 0, 0);
     padding: 15px;
     position: absolute;
     bottom: 0;
@@ -137,17 +227,17 @@
     position: absolute;
     left: 0;
     border-radius: 50px;
-    border: 3px solid black;
+    border: 3px solid #5b646b;
     animation: smooth-up-scroll;
     animation-duration: 1s;
 }
+
 .user-logo-div {
     height: 50px;
     width: 50px;
     position: absolute;
     right: 0;
     border-radius: 50px;
-    border: 1px solid black;
     animation: smooth-up-scroll;
     animation-duration: 1s;
 }
@@ -166,7 +256,6 @@
     }
 }
 
-
 .back-button {
     text-decoration: none;
     position: absolute;
@@ -181,11 +270,9 @@
     transform: scale(1.2);
     transition: 0.5s ease-in-out;
 }
-.logo-img {
-    height: 60px;
-    width: 60px;
+.theme-switch {
     margin-left: 50px;
-    margin-top: 5px;
+    margin-top: 15px;
     cursor: pointer;
 }
 .dark-chat-section {
@@ -196,308 +283,382 @@
     .user-prompt {
         left: 0px;
     }
-    .title-row{
-        width:90vw;
+    .title-row {
+        width: 90vw;
         margin-left: auto;
         margin-right: auto;
     }
-    .logo-img {
-        height: 50px;
-        width: 50px;
+    .theme-switch {
         margin-left: auto;
         margin-right: auto;
-        margin-top: 5px;
-        float:right;
+        margin-top: 15px;
+        float: right;
     }
     .back-button {
-        left:0px;
+        left: 0px;
     }
-    .chatbot-title-text{
+    .chatbot-title-text {
         font-size: 25px;
     }
-
-
 }
 
-@media screen and (max-width:991px) {
+@media screen and (max-width: 1000px) {
     .back-button {
-        left:101px;
+        left: 30px;
     }
-    .chatbot-title-text{
+    .chatbot-title-text {
+        font-size: 23px;
+        margin-top: 15px;
+    }
+    .theme-switch {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 15px;
+        float: right;
+    }
+    .footer-text-bot {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .back-button {
+        left: 30px;
+    }
+    .chatbot-title-text {
         font-size: 20px;
-        margin-top:15px;
+        margin-top: 20px;
     }
-    .logo-img {
+    .theme-switch {
         position: absolute;
-        right:100px;
+        right: 18px;
     }
-    .footer-text-bot{
+    .footer-text-bot {
         margin-top: 0;
         margin-bottom: 10px;
     }
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width: 730px) {
     .back-button {
-        left:30px;
+        left: 0;
     }
-    .chatbot-title-text{
-        font-size: 16px;
-        margin-top:20px;
+    .chatbot-title-text {
+        font-size: 19px;
+        margin-top: 20px;
     }
-    .logo-img {
+    .theme-switch {
         position: absolute;
-        right:20px;
+        right: 0;
     }
-    .footer-text-bot{
+    .footer-text-bot {
         margin-top: 0;
         margin-bottom: 10px;
     }
 }
 
-@media screen and (max-width:576px) {
+@media screen and (max-width: 650px) {
+    .chatbot-title-text .welcome-text,
+    .chatbot-title-text .chatbot-text {
+        display: block;
+    }
+
     .back-button {
-        left:30px;
+        left: 0;
     }
-    .chatbot-title-text{
-        font-size: 16px;
-        margin-top:20px;
+    .chatbot-title-text {
+        margin-left: -30px;
+        font-size: 18px;
+        margin-top: 20px;
     }
-    .submit-prompt{
+    .theme-switch {
         position: absolute;
-        right:0;
-        left:410px;
-        width:120px;
+        right: 0;
+    }
+    .footer-text-bot {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .theme-label {
+        display: none;
+    }
+    .chatbot-title-text .welcome-text,
+    .chatbot-title-text .chatbot-text {
+        display: block;
+    }
+
+    .chatbot-title-text {
+        font-size: 16px;
+        margin-top: 20px;
+    }
+    .submit-prompt {
+        position: absolute;
+        right: 0;
+        left: 410px;
+        width: 120px;
         bottom: 0px;
-        height:51px;
+        height: 51px;
     }
     .user-prompt {
         left: auto;
         right: auto;
-        width:80vw;
+        width: 80vw;
     }
-    .logo-img {
+    .back-button {
+        height: 26px;
+        width: auto;
+        left: 5px;
+    }
+    .theme-switch {
+        height: 20px;
+        width: auto;
         position: absolute;
-        right:20px;
+        right: 5px;
         display: block;
-        top:-45px;
+        top: -60px;
     }
-    .footer-text-bot{
-        margin-top: 0;
-        margin-bottom: 10px;
+    .footer-text-bot {
+        font-size: 0.9rem;
+        margin-top: -10px;
     }
-    .title-row{
-        width:100vw;
+    .title-row {
+        width: 100vw;
         margin-left: auto;
         margin-right: auto;
         display: flex;
     }
 
-    .user-question-div{
+    .user-question-div {
         width: 250px;
         margin-right: 0px;
         margin-left: 140px;
     }
-    .answer-div{
+    .answer-div {
         width: 250px;
     }
 }
 
-@media screen and (max-width:490px) {
+@media screen and (max-width: 490px) {
+    .footer-text-bot {
+        font-size: 1rem;
+    }
+    .chatbot-title-text .welcome-text,
+    .chatbot-title-text .chatbot-text {
+        display: block;
+    }
+    .theme-label {
+        display: none;
+    }
     .back-button {
-        left:10px;
-        height:30px;
+        left: 10px;
+        height: 30px;
         width: 40px;
     }
-    .chatbot-title-text{
+    .chatbot-title-text {
         font-size: 16px;
-        margin-top:20px;
+        margin-top: 20px;
     }
-    .submit-prompt{
+    .submit-prompt {
         position: absolute;
-        right:0;
-        left:300px;
-        width:120px;
+        right: 0;
+        left: 300px;
+        width: 120px;
         bottom: 0px;
-        height:50px;
+        height: 50px;
     }
     .user-prompt {
         left: auto;
         right: auto;
-        width:80vw;
+        width: 80vw;
     }
-    .logo-img {
+    .theme-switch {
         position: absolute;
-        right:20px;
+        right: 20px;
         display: block;
-        top:-40px;
+        top: -60px;
     }
-    .footer-text-bot{
+    .footer-text-bot {
         margin-top: 0;
-        margin-bottom: 10px;
+        font-size: 0.9rem;
     }
-    .title-row{
-        width:100vw;
+    .title-row {
+        width: 100vw;
         margin-left: auto;
         margin-right: auto;
         display: flex;
     }
 
-    .user-question-div{
+    .user-question-div {
         width: 200px;
         margin-right: 0px;
         margin-left: 75px;
     }
-    .answer-div{
+    .answer-div {
         width: 180px;
     }
 }
-@media screen and (max-width:425px) {
+@media screen and (max-width: 425px) {
+    .theme-label {
+        display: none;
+    }
+    .chatbot-title-text .welcome-text,
+    .chatbot-title-text .chatbot-text {
+        display: block;
+    }
     .back-button {
-        left:10px;
-        height:25px;
+        left: 10px;
+        height: 25px;
         width: 35px;
     }
-    .chatbot-title-text{
+    .chatbot-title-text {
         font-size: 16px;
-        margin-top:20px;
+        margin-top: 20px;
     }
-    .submit-prompt{
+    .submit-prompt {
         position: absolute;
-        right:0;
-        left:255px;
-        width:120px;
+        right: 0;
+        left: 255px;
+        width: 120px;
         bottom: 0px;
-        height:50px;
+        height: 50px;
     }
     .user-prompt {
         left: auto;
         right: auto;
-        width:80vw;
+        width: 80vw;
     }
-    .logo-img {
+    .theme-switch {
         position: absolute;
-        right:5px;
+        right: 5px;
         display: block;
-        top:-45px;
+        top: -60px;
     }
-    .footer-text-bot{
-        margin-top: 0;
-        margin-bottom: 10px;
-    }
-    .title-row{
-        width:100vw;
+
+    .title-row {
+        width: 100vw;
         margin-left: auto;
         margin-right: auto;
         display: flex;
     }
 
-    .user-question-div{
+    .user-question-div {
         width: 180px;
         margin-right: 0px;
         margin-left: 50px;
     }
-    .answer-div{
+    .answer-div {
         width: 150px;
     }
 }
-@media screen and (max-width:391px) {
+@media screen and (max-width: 391px) {
+    .footer-text-bot {
+        margin-top: 0;
+        font-size: 0.9rem;
+    }
+    .theme-label {
+        display: none;
+    }
     .back-button {
-        left:10px;
-        height:25px;
+        left: 10px;
+        height: 25px;
         width: 35px;
     }
-    .chatbot-title-text{
+    .chatbot-title-text {
         font-size: 16px;
-        margin-top:20px;
+        margin-top: 20px;
     }
-    .submit-prompt{
+    .submit-prompt {
         position: absolute;
-        right:0;
-        left:255px;
-        width:120px;
+        right: 0;
+        left: 255px;
+        width: 120px;
         bottom: 0px;
-        height:50px;
+        height: 50px;
     }
     .user-prompt {
         left: auto;
         right: auto;
-        width:80vw;
+        width: 80vw;
     }
-    .logo-img {
+    .theme-switch {
         position: absolute;
-        right:5px;
+        right: 5px;
         display: block;
-        top:-45px;
+        top: -60px;
     }
-    .footer-text-bot{
-        margin-top: 0;
-        margin-bottom: 10px;
-    }
-    .title-row{
-        width:100vw;
+
+    .title-row {
+        width: 100vw;
         margin-left: auto;
         margin-right: auto;
         display: flex;
     }
 
-    .user-question-div{
+    .user-question-div {
         width: 180px;
         margin-right: 0px;
         margin-left: 50px;
     }
-    .answer-div{
+    .answer-div {
         width: 150px;
     }
 }
 
-@media screen and (max-width:361px) {
+@media screen and (max-width: 376px) {
+    .footer-text-bot {
+        margin-top: -15px;
+        font-size: 0.8rem;
+    }
+    .theme-label {
+        display: none;
+    }
     .back-button {
-        left:10px;
-        height:25px;
+        left: 10px;
+        height: 25px;
         width: 35px;
     }
-    .chatbot-title-text{
+    .chatbot-title-text {
         font-size: 12px;
-        margin-top:20px;
+        margin-top: 20px;
     }
-    .submit-prompt{
+    .submit-prompt {
         position: absolute;
-        right:0;
-        left:240px;
-        width:120px;
+        right: 0;
+        left: 240px;
+        width: 120px;
         bottom: 0px;
-        height:50px;
+        height: 50px;
     }
     .user-prompt {
         left: auto;
         right: auto;
-        width:80vw;
+        width: 80vw;
     }
-    .logo-img {
+    .theme-switch {
         position: absolute;
-        right:5px;
+        right: 5px;
         display: block;
-        top:-45px;
+        top: -60px;
     }
-    .footer-text-bot{
-        margin-top: 0;
-        margin-bottom: 10px;
-    }
-    .title-row{
-        width:100vw;
+
+    .title-row {
+        width: 100vw;
         margin-left: auto;
         margin-right: auto;
         display: flex;
     }
 
-    .user-question-div{
+    .user-question-div {
         width: 150px;
         margin-right: 0px;
         margin-left: 60px;
         font-size: 15px;
     }
-    .answer-div{
+    .answer-div {
         width: 150px;
     }
 }

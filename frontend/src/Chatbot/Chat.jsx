@@ -1,24 +1,23 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useContext } from "react";
+import { ThemeContext } from "../ThemeContext";
 import "../CSS/chat-page.css";
 import axios from "axios";
-import logo from "../images/logo.png";
-import userlogo from "../images/user.png";
-import back from "../images/back.png";
-import { NavBar } from "../navbar/NavBar";
-import { Link, useNavigate } from "react-router-dom";
+import lightLogo from "../images/chatLogo.png";
+import userlogo from "../images/userLogo.png";
+import backLight from "../images/backLight.png";
+import backDark from "../images/backDark.png";
+import { useNavigate } from "react-router-dom";
 
 const Chat = () => {
+    const { theme, toggleTheme } = useContext(ThemeContext);
     const navigator = useNavigate();
 
     const clickBack = () => {
         navigator("/");
     };
     const prompt = useRef("");
-    const [answer, setAnswer] = useState("");
-    const [loading, iLoading] = useState(false);
     const sendPrompt = () => {
         const question = prompt.current.value;
-
         const container = document.getElementById("conversation-sect");
         const row = document.createElement("div");
         row.classList.add("row");
@@ -60,7 +59,7 @@ const Chat = () => {
                 div.classList.add("answer-div");
                 const logo_div = document.createElement("img");
                 logo_div.classList.add("logo-div");
-                logo_div.src = logo;
+                logo_div.src = lightLogo;
                 const anstext = res.data.Answer;
                 const answer = anstext.replace(/\*\*/g, "<br/>");
                 const answernew = anstext.replace(/\*/g, "<br/>");
@@ -79,67 +78,158 @@ const Chat = () => {
             });
     };
     return (
-        <div className="chat-page">
-            <div className="container-fluide title-container">
-                <div className="row title-row">
-                    <div className="col-sm-2">
-                        <img
-                            src={back}
-                            alt=""
-                            className="back-button"
-                            onClick={() => {
-                                clickBack();
-                            }}
-                        />
-                    </div>
-                    <div className="col-sm-8">
-                        <h1 className="chatbot-title-text">
-                            Welcome to the Legal Eagles Chat Bot{" "}
-                        </h1>
-                    </div>
-                    <div className="col-sm-2">
-                        <img src={logo} className="logo-img" alt=""  onClick={() => {
-                                clickBack();
-                            }}/>
-                    </div>
-                </div>
-            </div>
-            <div className="container chat-section">
-                <div className="row">
-                    <div className="container chat-area">
-                        <div className="row">
-                            <div
-                                className="conversation-section text-center"
-                                id="conversation-sect"
-                            ></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="container-fluide prompt-area justify-content-around">
-                <div className="container prompt-section">
-                    <div className="row">
-                        <div className="col-sm-10">
-                            <input
-                                type="text"
-                                className="user-prompt"
-                                ref={prompt}
-                                placeholder="Message Here"
+        <div
+            className={
+                theme === "dark"
+                    ? "watermark-container-dark"
+                    : "watermark-container-light"
+            }
+        >
+            <div
+                className={`"content" ${
+                    theme === "dark" ? "chat-page-dark" : "chat-page-light"
+                }`}
+            >
+                <div
+                    className={`container-fluide ${
+                        theme === "light"
+                            ? "title-container-light"
+                            : "title-container-dark"
+                    }`}
+                >
+                    <div className="row title-row">
+                        <div className="col-sm-2">
+                            <img
+                                src={theme === "dark" ? backDark : backLight}
+                                alt=""
+                                className="back-button"
+                                onClick={() => {
+                                    clickBack();
+                                }}
                             />
                         </div>
+                        <div className="col-sm-8">
+                            <h1 className="chatbot-title-text">
+                                <span
+                                    className="welcome-text"
+                                    style={{
+                                        color:
+                                            theme === "light"
+                                                ? "black"
+                                                : "white",
+                                    }}
+                                >
+                                    Welcome to the Legal Eagles
+                                </span>{" "}
+                                <span
+                                    className="chatbot-text"
+                                    style={{
+                                        color:
+                                            theme === "light"
+                                                ? "black"
+                                                : "white",
+                                    }}
+                                >
+                                    Chat Bot
+                                </span>
+                            </h1>
+                        </div>
                         <div className="col-sm-2">
-                            <button
-                                className="submit-prompt"
-                                onClick={() => sendPrompt()}
-                            >
-                                Send
-                            </button>
+                            <div className="theme-switch" onClick={toggleTheme}>
+                                <div
+                                    className={`switch ${
+                                        theme === "dark" ? "dark" : "light"
+                                    }`}
+                                >
+                                    <div className="switch-circle"></div>
+                                </div>
+                                <span
+                                    className="theme-label"
+                                    style={{
+                                        color:
+                                            theme === "light"
+                                                ? "black"
+                                                : "white",
+                                    }}
+                                >
+                                    {theme === "light" ? "Light" : "Dark"}
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div className="container chat-section">
+                    <div className="row">
+                        <div className="container chat-area">
+                            <div className="row">
+                                <div
+                                    className="conversation-section text-center"
+                                    id="conversation-sect"
+                                ></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="container-fluide prompt-area justify-content-around">
+                    <div className="container prompt-section">
+                        <div className="row">
+                            <div className="col-sm-10">
+                                <input
+                                    style={{
+                                        color:
+                                            theme === "light"
+                                                ? "black"
+                                                : "white",
+                                        backgroundColor:
+                                            theme === "light"
+                                                ? "white"
+                                                : "#727272",
+                                    }}
+                                    type="text"
+                                    className="user-prompt"
+                                    ref={prompt}
+                                    placeholder="Message Here"
+                                    onKeyDown={(e) => {
+                                        if (
+                                            e.key === "Enter" &&
+                                            prompt.current.value.trim() !== ""
+                                        ) {
+                                            sendPrompt();
+                                        }
+                                    }}
+                                />
+                            </div>
+                            <div className="col-sm-2">
+                                <button
+                                    className="submit-prompt"
+                                    onClick={() => {
+                                        if (
+                                            prompt.current.value.trim() !== ""
+                                        ) {
+                                            sendPrompt();
+                                        }
+                                    }}
+                                >
+                                    Send
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br></br>
+                <p
+                    className="footer-text-bot"
+                    style={{
+                        backgroundColor:
+                            theme === "light" ? "white" : "#303030",
+                        fontSize:"1rem",
+                    }}
+                >
+                    {" "}
+                    Legal Eagles chatbot can make mistakes. Check important
+                    info.
+                </p>
             </div>
-            <br></br>
-            <p className='footer-text-bot'> Legal Eagles chatbot can make mistakes. Check important info.</p>
         </div>
     );
 };

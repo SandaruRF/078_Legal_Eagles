@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "react-bootstrap/Card";
 import Form from 'react-bootstrap/Form';
+import { ThemeContext } from "../ThemeContext";
 
 const RadioButton = ({ isRadioSelected, onRadioChange }) => {
+    const { theme } = useContext(ThemeContext);
     return (
         <div className="radio-container">
             <Card.Text>
-                <Form.Check
+                <Form.Check style={{color:theme === 'dark' ?'white':'black'}} 
                     type="switch"
                     id="custom-switch"
                     label="Select All"

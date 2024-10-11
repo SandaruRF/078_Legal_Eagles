@@ -1,0 +1,9 @@
+.custom-placeholder-dark::placeholder {
+    color: rgb(255, 255, 255);
+    opacity: 0.5;
+}
+
+.custom-placeholder-light::placeholder {
+    color: rgb(0, 0, 0);
+    opacity: 0.5;
+}

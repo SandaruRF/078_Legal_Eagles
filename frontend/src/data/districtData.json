@@ -1,0 +1,102 @@
+[
+  {
+    "districtName": "Colombo",
+    "result": [
+      {
+        "candidateName": "Anura",
+        "totalVotes": 629963,
+        "percentage": 47.21
+      },
+      {
+        "candidateName": "Sajith",
+        "totalVotes": 342108,
+        "percentage": 25.64
+      },
+      {
+        "candidateName": "Ranil",
+        "totalVotes": 281436,
+        "percentage": 21.09
+      }
+    ]
+  },
+  {
+    "districtName": "Gampaha",
+    "result": [
+      {
+        "candidateName": "Anura",
+        "totalVotes": 809410,
+        "percentage": 55.5
+      },
+      {
+        "candidateName": "Sajith",
+        "totalVotes": 349550,
+        "percentage": 23.97
+      },
+      {
+        "candidateName": "Ranil",
+        "totalVotes": 216028,
+        "percentage": 14.81
+      }
+    ]
+  },
+  {
+    "districtName": "Anuradhapura",
+    "result": [
+      {
+        "candidateName": "Anura",
+        "totalVotes": 285944,
+        "percentage": 47.37
+      },
+      {
+        "candidateName": "Sajith",
+        "totalVotes": 202289,
+        "percentage": 33.51
+      },
+      {
+        "candidateName": "Ranil",
+        "totalVotes": 82152,
+        "percentage": 13.61
+      }
+    ]
+  },
+  {
+    "districtName": "Mahanuwara",
+    "result": [
+      {
+        "candidateName": "Anura",
+        "totalVotes": 394534,
+        "percentage": 42.26
+      },
+      {
+        "candidateName": "Sajith",
+        "totalVotes": 323998,
+        "percentage": 34.71
+      },
+      {
+        "candidateName": "Ranil",
+        "totalVotes": 162707,
+        "percentage": 17.43
+      }
+    ]
+  },
+  {
+    "districtName": "Monaragala",
+    "result": [
+      {
+        "candidateName": "Anura",
+        "totalVotes": 140269,
+        "percentage": 41.86
+      },
+      {
+        "candidateName": "Sajith",
+        "totalVotes": 134238,
+        "percentage": 40.06
+      },
+      {
+        "candidateName": "Ranil",
+        "totalVotes": 35728,
+        "percentage": 10.66
+      }
+    ]
+  }
+]

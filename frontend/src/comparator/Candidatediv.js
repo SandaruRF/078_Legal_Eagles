@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "react-bootstrap/Card";
+import { ThemeContext } from "../ThemeContext";
 
 const CandidateDiv = ({ id, candidateData, bgColor, fullName }) => {
+    const { theme } = useContext(ThemeContext);
     return (
         <div
             style={{
@@ -20,12 +22,18 @@ const CandidateDiv = ({ id, candidateData, bgColor, fullName }) => {
                         width: "100%",
                         textAlign: "left",
                         height: "100%",
+                        backgroundColor: theme === "dark" ? "#323232" : "white",
+                        color: theme === "dark" ? "white" : "black",
                     }}
                     key={index}
                 >
                     <Card.Body>
                         <Card.Title
-                            style={{ color: bgColor, fontSize: "1.5rem" }}
+                            style={{
+                                color: bgColor,
+                                fontSize: "1.5rem",
+                                fontWeight: "bold",
+                            }}
                         >
                             {fullName}
                         </Card.Title>
@@ -34,7 +42,10 @@ const CandidateDiv = ({ id, candidateData, bgColor, fullName }) => {
                             <div
                                 key={index}
                                 dangerouslySetInnerHTML={{ __html: details }}
-                                style={{ marginBottom: "10px" }}
+                                style={{
+                                    marginBottom: "10px",
+                                    paddingLeft: "12px",
+                                }}
                             />
                         </Card.Text>
                     </Card.Body>

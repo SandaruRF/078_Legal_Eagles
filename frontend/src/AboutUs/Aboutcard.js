@@ -1,14 +1,17 @@
+import React, {useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { ThemeContext } from "../ThemeContext";
 
 const Aboutcard = ({ image, name, linkedin }) => {
+    const { theme } = useContext(ThemeContext);
     return (
         <div>
             <Card
                 style={{
                     width: "15rem",
                     border: "1px solid lightgray",
-                    backgroundColor: "#41436A",
+                    backgroundColor:theme === 'dark' ?"#2F304D":"#4B4D7A"
                 }}
             >
                 <Card.Img

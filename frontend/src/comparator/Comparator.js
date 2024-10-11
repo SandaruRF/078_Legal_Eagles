@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import CandidateList from "./CandidateList";
 import Gallery from "./Gallery";
 import CandidateDiv from "./Candidatediv";
@@ -6,6 +6,7 @@ import Card from "react-bootstrap/Card";
 import Spinner from "react-bootstrap/Spinner";
 import { NavBar } from "../navbar/NavBar";
 import Footer from "../footer/Footer";
+import { ThemeContext } from "../ThemeContext";
 
 const texts = [
     "Economy",
@@ -25,19 +26,54 @@ const texts = [
 const candidates = ["anura", "ranil", "namal", "sajith"];
 
 const Comparator = () => {
+    const { theme } = useContext(ThemeContext);
+
     const [candidateData, setCandidateData] = useState(null);
     const [summaryData, setSummaryData] = useState(null);
-
     const [checkedCandidates, setCheckedCandidates] = useState(
         Array(4).fill(false)
     );
     const [checkedImages, setCheckedImages] = useState(Array(12).fill(false));
     const [formSubmitted, setFormSubmitted] = useState(false);
+    const [modalCandidates, setModalCandidates] = useState([]);
+    const [isSmallScreen, setIsSmallScreen] = useState(
+        window.innerWidth < 1200
+    );
+
+    const handleResize = () => {
+        setIsSmallScreen(window.innerWidth < 1200);
+    };
+
+    useEffect(() => {
+        window.addEventListener("resize", handleResize);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
 
     const handleCandidateSelection = (index) => {
         const newCheckedCandidates = [...checkedCandidates];
         newCheckedCandidates[index] = !newCheckedCandidates[index];
         setCheckedCandidates(newCheckedCandidates);
+    };
+
+    const selectedCandidates = checkedCandidates
+        .map((isChecked, i) => isChecked && candidates[i])
+        .filter(Boolean);
+
+    console.log("Selected Candidates from list:", selectedCandidates);
+    console.log("Selected Modal Candidates:", modalCandidates);
+
+    const handleModalCandidateAdd = (candidate) => {
+        setModalCandidates([...modalCandidates, candidate]);
+        console.log("Modal Candidates after adding:", [
+            ...modalCandidates,
+            candidate,
+        ]);
+    };
+
+    const handleModalCandidateRemove = (name) => {
+        setModalCandidates(modalCandidates.filter((c) => c.name !== name));
     };
 
     const handleTopicSelection = (newCheckedImages) => {
@@ -66,9 +102,9 @@ const Comparator = () => {
 
     const colorMap = {
         anura: "#C4094A",
-        ranil: "#0B7708",
+        ranil: "#FED431",
         namal: "#87171A",
-        sajith: "#FED431",
+        sajith: "#0B7708",
     };
 
     const FullName = {
@@ -83,15 +119,28 @@ const Comparator = () => {
             .map((isChecked, index) => isChecked && candidates[index])
             .filter(Boolean);
 
+        const allCandidates = [
+            ...selectedCandidates,
+            ...modalCandidates.map((c) => c.name),
+        ];
         const selectedFields = texts.filter((_, index) => checkedImages[index]);
 
-        if (selectedCandidates.length < 2) {
+        console.log(
+            "Final selected candidates from checkboxes:",
+            allCandidates
+        );
+
+        if (allCandidates.length < 2) {
             alert("Please select at least 2 candidates.");
             return;
         }
 
         if (selectedFields.length < 1) {
             alert("Please select at least 1 field.");
+            return;
+        }
+        if (selectedFields.length > 4) {
+            alert("Please select maximum 4.");
             return;
         }
 
@@ -102,7 +151,10 @@ const Comparator = () => {
             const response = await fetch("http://127.0.0.1:8000/api/compare", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ selectedFields, selectedCandidates }),
+                body: JSON.stringify({
+                    selectedFields,
+                    selectedCandidates: allCandidates,
+                }),
             });
 
             if (!response.ok) {
@@ -124,13 +176,19 @@ const Comparator = () => {
             setFormSubmitted(false);
         }
     };
+    const col=theme === "dark" ? "white" : "black";
 
     return (
-        <div>
+        <div
+            style={{ backgroundColor: theme === "dark" ? "#212121" : "white" }}
+        >
             <NavBar />
             <CandidateList
                 checkedCandidates={checkedCandidates}
                 onCandidateClick={handleCandidateSelection}
+                onModalCandidateAdd={handleModalCandidateAdd}
+                onModalCandidateRemove={handleModalCandidateRemove}
+                modalCandidates={modalCandidates}
             />
             <Gallery
                 checkedImages={checkedImages}
@@ -146,16 +204,22 @@ const Comparator = () => {
                         body
                         className="text-center"
                         style={{
-                            backgroundColor: "#EEEEEE",
+                            backgroundColor:
+                                theme === "dark" ? "#424242" : "#EEEEEE",
                             marginRight: "5rem",
                             marginLeft: "5rem",
                             marginTop: "3rem",
                             marginBottom: "3rem",
                         }}
                     >
-                        <Spinner animation="border" variant="info" />
+                        <Spinner
+                            animation="border"
+                            variant="info"
+                            style={{ width: "5rem", height: "5rem" }}
+                        />
                         <Card.Title
                             style={{
+                                color: theme === "dark" ? "white" : "black",
                                 fontSize: "1.7rem",
                                 fontWeight: "bold",
                             }}
@@ -170,7 +234,8 @@ const Comparator = () => {
                         body
                         className="text-center"
                         style={{
-                            backgroundColor: "#EEEEEE",
+                            backgroundColor:
+                                theme === "dark" ? "#424242" : "#EEEEEE",
                             marginRight: "5rem",
                             marginLeft: "5rem",
                             marginTop: "3rem",
@@ -181,6 +246,7 @@ const Comparator = () => {
                             style={{
                                 fontSize: "1.7rem",
                                 fontWeight: "bold",
+                                color: theme === "dark" ? "white" : "black",
                             }}
                         >
                             Comparator Results
@@ -192,7 +258,8 @@ const Comparator = () => {
                         <Card
                             className="text-center"
                             style={{
-                                backgroundColor: "#EEEEEE",
+                                backgroundColor:
+                                    theme === "dark" ? "#424242" : "#EEEEEE",
                                 marginRight: "5rem",
                                 marginLeft: "5rem",
                                 marginTop: "3rem",
@@ -205,6 +272,10 @@ const Comparator = () => {
                                     style={{
                                         fontSize: "1.7rem",
                                         fontWeight: "bold",
+                                        color:
+                                            theme === "dark"
+                                                ? "white"
+                                                : "black",
                                     }}
                                 >
                                     {field}
@@ -230,11 +301,11 @@ const Comparator = () => {
                                                         candidateFields[field],
                                                 }}
                                                 bgColor={
-                                                    colorMap[candidateName] ||
-                                                    "#FFFFFF"
+                                                    colorMap[candidateName] || col 
                                                 }
                                                 fullName={
-                                                    FullName[candidateName]
+                                                    FullName[candidateName] ||
+                                                    candidateName
                                                 }
                                             />
                                         )
@@ -247,12 +318,19 @@ const Comparator = () => {
                                     textAlign: "left",
                                     height: "100%",
                                     margin: "0 1rem 1rem 1rem",
+                                    color: theme === "dark" ? "white" : "black",
+                                    backgroundColor:
+                                        theme === "dark" ? "#323232" : "white",
                                 }}
                             >
                                 <Card.Header
                                     style={{
                                         fontSize: "1.3rem",
                                         fontWeight: "bold",
+                                        backgroundColor:
+                                            theme === "dark"
+                                                ? "#272727"
+                                                : "#EEEEEE",
                                     }}
                                 >
                                     Summary of {field}
@@ -267,6 +345,8 @@ const Comparator = () => {
                     ))}
                 </div>
             ) : null}
+            <br />
+            <br />
             <Footer />
         </div>
     );
