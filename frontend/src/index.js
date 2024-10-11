@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index2.css";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -11,6 +10,7 @@ import Comparator from "./comparator/Comparator";
 import Aboutus from "./AboutUs/Aboutus";
 import BarChart from "./prediction/BarChart";
 import News from "./News/News";
+// import Map from "./Map";
 
 import { ThemeProvider } from "./ThemeContext";
 
@@ -33,12 +33,12 @@ const router = createBrowserRouter([
     },
     {
         path: "/prediction",
-        element: < BarChart/>,
+        element: <BarChart />,
         errorElement: "404 Error \n Page not Found.",
     },
     {
         path: "/news",
-        element: < News/>,
+        element: <News />,
         errorElement: "404 Error \n Page not Found.",
     },
     {
@@ -46,11 +46,16 @@ const router = createBrowserRouter([
         element: <Aboutus />,
         errorElement: "404 Error \n Page not Found.",
     },
+    // {
+    //     path: "/map",
+    //     element: <Map />,
+    //     errorElement: "404 Error \n Page not Found.",
+    // },
 ]);
 root.render(
     <React.StrictMode>
         <ThemeProvider>
-        <RouterProvider router={router} />
+            <RouterProvider router={router} />
         </ThemeProvider>
     </React.StrictMode>
 );

@@ -1,38 +1,45 @@
 {
             "articles":[
             {
-                "title": "Weather alert issued for heavy rainfall above 150mm",
-                "description": "<img align=\"left\" hspace=\"5\" src=\"https://adaderanaenglish.s3.amazonaws.com/1728574735-weather-1.jpg\" width=\"60\" />The Department of Meteorology has issued a Color- Red  warning for heavy rainfall in the Western, Sabaragamuwa and North-western provinces and in Galle and Matara districts, in the next 24 hours. MORE..",
-                "link": "http://www.adaderana.lk/news.php?nid=102601",
-                "image_url": "https://adaderanaenglish.s3.amazonaws.com/1728574735-weather-1.jpg",
+                "title": "National List of Sarvajana Balaya  revealed",
+                "description": "<img align=\"left\" hspace=\"5\" src=\"https://adaderanaenglish.s3.amazonaws.com/1728651655-sb-0.jpg\" width=\"60\" />The “Sarvajana Balaya” alliance has released its list of candidates nominated to be appointed as national list members of parliament (National List MPs) in the 2024 General Election.  MORE..",
+                "link": "http://www.adaderana.lk/news.php?nid=102624",
+                "image_url": "https://adaderanaenglish.s3.amazonaws.com/1728651655-sb-0.jpg",
+                "category": "Politics"
+            },
+            {
+                "title": "General Election- 690 nominations accepted, 74 rejected",
+                "description": "<img align=\"left\" hspace=\"5\" src=\"https://adaderanaenglish.s3.amazonaws.com/1728650318-election-cg-0.jpg\" width=\"60\" />The Commissioner General of Elections, Saman Sri Ratnayake, announced that a total of 764 nomination papers were submitted by political parties and independent groups for the 2024 General Election, from the 22 electoral districts across the island.  MORE..",
+                "link": "http://www.adaderana.lk/news.php?nid=102623",
+                "image_url": "https://adaderanaenglish.s3.amazonaws.com/1728650318-election-cg-0.jpg",
+                "category": "Politics"
+            },
+            {
+                "title": "Japanese atomic bomb survivor group Nihon Hidankyo awarded Nobel Peace Prize",
+                "description": "<img align=\"left\" hspace=\"5\" src=\"https://adaderanaenglish.s3.amazonaws.com/1728639919-nihon-1.jpg\" width=\"60\" />Japanese organisation Nihon Hidankyo, a grassroots movement of atomic bomb survivors from Hiroshima and Nagasaki also known as Hibakusha, won the Nobel Peace Prize on Friday. MORE..",
+                "link": "http://www.adaderana.lk/news.php?nid=102618",
+                "image_url": "https://adaderanaenglish.s3.amazonaws.com/1728639919-nihon-1.jpg",
                 "category": ""
             },
             {
-                "title": "Another town in Haiti comes under attack a week after gangs killed at least 115 people",
-                "description": "<img align=\"left\" hspace=\"5\" src=\"https://adaderanaenglish.s3.amazonaws.com/1728572274-AP-1.jpg\" width=\"60\" />Gunmen invaded another town north of Haiti s capital on Thursday, shooting at people and setting homes on fire, just a week after a massacre killed at least 115 people in the country s central region. The number of casualties was not immediately known. MORE..",
-                "link": "http://www.adaderana.lk/news.php?nid=102600",
-                "image_url": "https://adaderanaenglish.s3.amazonaws.com/1728572274-AP-1.jpg",
+                "title": "Crown of Goddess Kali, gifted by PM Modi, stolen from Bangladesh temple",
+                "description": "<img align=\"left\" hspace=\"5\" src=\"https://adaderanaenglish.s3.amazonaws.com/1728629338-Kali-1.jpg\" width=\"60\" />A crown of goddess Kali has been stolen from the Jeshoreshwari temple in Satkhira s Shyamnagar. MORE..",
+                "link": "http://www.adaderana.lk/news.php?nid=102614",
+                "image_url": "https://adaderanaenglish.s3.amazonaws.com/1728629338-Kali-1.jpg",
                 "category": ""
             },
             {
-                "title": "Court restrains Hasalaka Thushara from making defamatory statements on TV Derana",
-                "description": "<img align=\"left\" hspace=\"5\" src=\"https://adaderanaenglish.s3.amazonaws.com/1728564992-hasalaka-thushara-1.jpg\" width=\"60\" />The Colombo District Court issued an interim injunction against Hasalaka Thushara preventing him from issuing defamatory statements against TV Derana, until the final determination of the case. MORE..",
-                "link": "http://www.adaderana.lk/news.php?nid=102597",
-                "image_url": "https://adaderanaenglish.s3.amazonaws.com/1728564992-hasalaka-thushara-1.jpg",
+                "title": "18 injured after two buses collide on Colombo-Kandy road",
+                "description": "<img align=\"left\" hspace=\"5\" src=\"https://adaderanaenglish.s3.amazonaws.com/1728625162-buses-1.jpg\" width=\"60\" />Two buses have reportedly collided along the Colombo – Kandy main road this morning (11) resulting in injuries to at least 18 passengers. MORE..",
+                "link": "http://www.adaderana.lk/news.php?nid=102610",
+                "image_url": "https://adaderanaenglish.s3.amazonaws.com/1728625162-buses-1.jpg",
                 "category": ""
             },
             {
-                "title": "South Korea s Han Kang wins 2024 Nobel literature prize",
-                "description": "<img align=\"left\" hspace=\"5\" src=\"https://adaderanaenglish.s3.amazonaws.com/1728559595-litttt-111.jpg\" width=\"60\" />South Korean author Han Kang won the 2024 Nobel Prize in Literature for “her intense poetic prose that confronts historical traumas and exposes the fragility of human life,” the award-giving body said on Thursday. MORE..",
-                "link": "http://www.adaderana.lk/news.php?nid=102593",
-                "image_url": "https://adaderanaenglish.s3.amazonaws.com/1728559595-litttt-111.jpg",
-                "category": ""
-            },
-            {
-                "title": "More than 3 million without power as Hurricane Milton slams Florida, causes deaths and flooding",
-                "description": "<img align=\"left\" hspace=\"5\" src=\"https://adaderanaenglish.s3.amazonaws.com/1728553687-tropicana-1.jpg\" width=\"60\" />Hurricane Milton churned across Florida on Thursday after plowing into the state as a Category 3 storm, bringing misery to a coast still ravaged by Helene, pounding cities with winds of over 100 mph (160 kph) after producing a barrage of tornadoes, but sparing Tampa a direct hit. MORE..",
-                "link": "http://www.adaderana.lk/news.php?nid=102589",
-                "image_url": "https://adaderanaenglish.s3.amazonaws.com/1728553687-tropicana-1.jpg",
+                "title": "Colorado tourist mine accident leaves one person dead; 23 people rescued",
+                "description": "<img align=\"left\" hspace=\"5\" src=\"https://adaderanaenglish.s3.amazonaws.com/1728616092-CNN-1.jpg\" width=\"60\" />One person has died and 23 people have been rescued after they were trapped hundreds of feet underground at the Mollie Kathleen Gold Mine, a tourist mine in Cripple Creek, Colorado, officials said Thursday. MORE..",
+                "link": "http://www.adaderana.lk/news.php?nid=102605",
+                "image_url": "https://adaderanaenglish.s3.amazonaws.com/1728616092-CNN-1.jpg",
                 "category": ""
             }
             ]

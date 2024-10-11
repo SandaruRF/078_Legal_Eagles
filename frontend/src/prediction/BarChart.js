@@ -270,7 +270,7 @@ const BarChart = () => {
         },
     };
 
-    const backgroundColor = theme === 'dark' ? '#212121' : 'white';
+    const backgroundColor = theme === 'dark' ? "#212121" : 'white';
 
     return (
         <div style={{ backgroundColor }}>

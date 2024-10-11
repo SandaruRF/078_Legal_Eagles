@@ -149,6 +149,10 @@ def category_news(news):
     4. Prioritize fitting articles into categories that best reflect their content, rather than defaulting to 'Politics.' Use 'Politics' only if the article is primarily about political matters.
     5. If you cannot categorize a news article, leave the category field as an empty string ('').
 
+    Important - 
+    Do not categorize news articles related to accidents, weather reports, Nobel prize winners, or any news that is not relevant to Sri Lanka. Focus primarily on the performance of the president and the government.
+    Only categorize government actions that have a positive or negative impact on the people.
+
     Your final output should be in valid JSON format, maintaining the structure of the provided news articles.
     Output should resemble the following format: (It should convert to JSON using json.loads(your_output_string))
     (Do not add any formatting or extra text beyond the template below)

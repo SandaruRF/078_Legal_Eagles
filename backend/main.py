@@ -176,7 +176,7 @@ print("If you want to leave, enter 'Bye'.")
 
 
 
-test_df = pd.read_csv('model/present_election_dataset1.csv')  #importing the dataset csv file to input to the model
+test_df = pd.read_csv('model/present_election_dataset.csv')  #importing the dataset csv file to input to the model
 
 model = joblib.load('model/final_percentage_predictor.pkl') #importing the model
 

@@ -293,11 +293,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 
 .theme-switch {
+    margin-top: -3px;;
     position: relative;
     display: flex;
     align-items: center;
     cursor: pointer;
-    margin-left: 15px;
 }
 
 .theme-switch .switch {

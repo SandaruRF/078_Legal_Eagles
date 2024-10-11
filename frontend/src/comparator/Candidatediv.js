@@ -42,7 +42,10 @@ const CandidateDiv = ({ id, candidateData, bgColor, fullName }) => {
                             <div
                                 key={index}
                                 dangerouslySetInnerHTML={{ __html: details }}
-                                style={{ marginBottom: "10px" }}
+                                style={{
+                                    marginBottom: "10px",
+                                    paddingLeft: "12px",
+                                }}
                             />
                         </Card.Text>
                     </Card.Body>

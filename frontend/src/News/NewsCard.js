@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Spinner from "react-bootstrap/Spinner";
 import { ThemeContext } from "../ThemeContext";
-import React, {useContext } from "react";
+import React, { useContext } from "react";
 
 const NewsCard = ({ border, image, title, category, link }) => {
     const { theme } = useContext(ThemeContext);
@@ -99,11 +99,13 @@ const NewsCard = ({ border, image, title, category, link }) => {
                             style={{
                                 color: border,
                                 fontWeight: "bold",
+                                fontSize: "1.2 rem",
                             }}
                         >
                             {category}
                         </span>
                     </Card.Text>
+                    <br />
                     <a href={link} target="_blank" rel="noopener noreferrer">
                         <Button variant="primary">
                             Read More on Ada Derana
@@ -115,10 +117,10 @@ const NewsCard = ({ border, image, title, category, link }) => {
             <Accordion defaultActiveKey={null} style={{ margin: "1rem" }}>
                 <Accordion.Item
                     eventKey="0"
-                    style={{ border: "1px solid #008000"}}
+                    style={{ border: "1px solid #008000" }}
                 >
                     <Accordion.Header onClick={handleAccordionToggle}>
-                        <span style={{ fontWeight: "bold"}}>
+                        <span style={{ fontWeight: "bold" }}>
                             Compare with Manifesto
                         </span>
                     </Accordion.Header>

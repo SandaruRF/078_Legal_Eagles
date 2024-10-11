@@ -176,6 +176,7 @@ const Comparator = () => {
             setFormSubmitted(false);
         }
     };
+    const col=theme === "dark" ? "white" : "black";
 
     return (
         <div
@@ -300,8 +301,7 @@ const Comparator = () => {
                                                         candidateFields[field],
                                                 }}
                                                 bgColor={
-                                                    colorMap[candidateName] ||
-                                                    "#000000"
+                                                    colorMap[candidateName] || col 
                                                 }
                                                 fullName={
                                                     FullName[candidateName] ||
@@ -345,6 +345,8 @@ const Comparator = () => {
                     ))}
                 </div>
             ) : null}
+            <br />
+            <br />
             <Footer />
         </div>
     );

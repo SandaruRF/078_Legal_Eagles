@@ -222,6 +222,7 @@ const Chat = () => {
                     style={{
                         backgroundColor:
                             theme === "light" ? "white" : "#303030",
+                        fontSize:"1rem",
                     }}
                 >
                     {" "}

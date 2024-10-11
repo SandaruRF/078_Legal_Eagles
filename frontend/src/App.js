@@ -4,7 +4,6 @@ import Homepage from "./home/Homepage";
 
 function App() {
     return (
-        
             <Homepage />
     );
 }

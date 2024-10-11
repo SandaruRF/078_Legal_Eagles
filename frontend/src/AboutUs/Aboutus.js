@@ -7,9 +7,8 @@ import Aboutcard from "./Aboutcard";
 import { NavBar } from "../navbar/NavBar";
 import Card from "react-bootstrap/Card";
 import Footer from "../footer/Footer";
-import React, {useContext } from "react";
+import React, { useContext } from "react";
 import { ThemeContext } from "../ThemeContext";
-
 
 const Aboutus = () => {
     const members = [
@@ -43,13 +42,15 @@ const Aboutus = () => {
     const { theme } = useContext(ThemeContext);
 
     return (
-        <div style={{backgroundColor:theme === 'dark' ?"#212121":'white'}}>
+        <div
+            style={{ backgroundColor: theme === "dark" ? "#212121" : "white" }}
+        >
             <NavBar />
             <Card
                 className="text-center"
                 style={{
-                    backgroundColor:theme === 'dark' ? '#303030' :"#EEEEEE",
-                    color:theme === 'dark' ? 'white' : 'black',
+                    backgroundColor: theme === "dark" ? "#303030" : "#EEEEEE",
+                    color: theme === "dark" ? "white" : "black",
                     marginRight: "auto",
                     marginLeft: "auto",
                     marginTop: "3rem",
@@ -59,7 +60,9 @@ const Aboutus = () => {
             >
                 <Card.Body>
                     <br></br>
-                    <Card.Title style={{ fontSize: "1.7rem", fontWeight: "bold" }}>
+                    <Card.Title
+                        style={{ fontSize: "1.7rem", fontWeight: "bold" }}
+                    >
                         Legal Eagles : Our Team
                     </Card.Title>
                     <br></br>
@@ -87,7 +90,7 @@ const Aboutus = () => {
             <br></br>
             <br></br>
             <br></br>
-            <Footer/>
+            <Footer />
         </div>
     );
 };

@@ -1,0 +1,1740 @@
+[
+    {
+        "districtName": "Colombo",
+        "districtResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 629963
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 342108
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 281436
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 30432
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 50451
+            }
+        ],
+        "districtVotes": [
+            {
+                "validVotesCount": "1334390",
+                "validVotesPercentage": "97.67",
+                "rejectedVotesCount": "31796",
+                "rejectedVotesPercentage": "2.33",
+                "totalPolledCount": "1366186",
+                "totalPolledPercentage": "77.39",
+                "totalElectorsCount": "1765351"
+            }
+        ],
+        "postalResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 20864
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 7645
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 4080
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 561
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 1040
+            }
+        ],
+        "postalVotes": [
+            {
+                "validVotesCount": "34190",
+                "validVotesPercentage": "97",
+                "rejectedVotesCount": "1059",
+                "rejectedVotesPercentage": "3",
+                "totalPolledCount": "35249",
+                "totalPolledPercentage": "98.91",
+                "totalElectorsCount": "35636"
+            }
+        ],
+        "preferenceResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 35488
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 17902
+            }
+        ]
+    },
+    {
+        "districtName": "Gampaha",
+        "districtResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 809410
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 349550
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 216028
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 41193
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 42208
+            }
+        ],
+        "districtVotes": [
+            {
+                "validVotesCount": "1458389",
+                "validVotesPercentage": "98.03",
+                "rejectedVotesCount": "29381",
+                "rejectedVotesPercentage": "1.97",
+                "totalPolledCount": "1487770",
+                "totalPolledPercentage": "79.09",
+                "totalElectorsCount": "1881129"
+            }
+        ],
+        "postalResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 33226
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 9116
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 6383
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 943
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 921
+            }
+        ],
+        "postalVotes": [
+            {
+                "validVotesCount": "50589",
+                "validVotesPercentage": "97.28",
+                "rejectedVotesCount": "1416",
+                "rejectedVotesPercentage": "2.72",
+                "totalPolledCount": "52005",
+                "totalPolledPercentage": "99.08",
+                "totalElectorsCount": "52486"
+            }
+        ],
+        "preferenceResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 16683
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 12217
+            }
+        ]
+    },
+    {
+        "districtName": "Kalutara",
+        "districtResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 387764
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 236307
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 143285
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 22727
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 27435
+            }
+        ],
+        "districtVotes": [
+            {
+                "validVotesCount": "817518",
+                "validVotesPercentage": "98.05",
+                "rejectedVotesCount": "16243",
+                "rejectedVotesPercentage": "1.95",
+                "totalPolledCount": "833761",
+                "totalPolledPercentage": "81.4",
+                "totalElectorsCount": "1024244"
+            }
+        ],
+        "postalResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 21589
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 7456
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 5465
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 663
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 786
+            }
+        ],
+        "postalVotes": [
+            {
+                "validVotesCount": "35959",
+                "validVotesPercentage": "97.92",
+                "rejectedVotesCount": "763",
+                "rejectedVotesPercentage": "2.08",
+                "totalPolledCount": "36722",
+                "totalPolledPercentage": "98.32",
+                "totalElectorsCount": "37348"
+            }
+        ],
+        "preferenceResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 8517
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 6135
+            }
+        ]
+    },
+    {
+        "districtName": "Mahanuwara",
+        "districtResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 394534
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 323998
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 162707
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 19403
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 32874
+            }
+        ],
+        "districtVotes": [
+            {
+                "validVotesCount": "933516",
+                "validVotesPercentage": "97.48",
+                "rejectedVotesCount": "24153",
+                "rejectedVotesPercentage": "2.52",
+                "totalPolledCount": "957669",
+                "totalPolledPercentage": "80.38",
+                "totalElectorsCount": "1191399"
+            }
+        ],
+        "postalResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 32295
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 10635
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 9134
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 702
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 934
+            }
+        ],
+        "postalVotes": [
+            {
+                "validVotesCount": "53700",
+                "validVotesPercentage": "97.29",
+                "rejectedVotesCount": "1494",
+                "rejectedVotesPercentage": "2.71",
+                "totalPolledCount": "55194",
+                "totalPolledPercentage": "98.92",
+                "totalElectorsCount": "55797"
+            }
+        ],
+        "preferenceResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 9188
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 8020
+            }
+        ]
+    },
+    {
+        "districtName": "Matale",
+        "districtResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 140544
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 121803
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 53829
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 10327
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 13231
+            }
+        ],
+        "districtVotes": [
+            {
+                "validVotesCount": "339734",
+                "validVotesPercentage": "97.72",
+                "rejectedVotesCount": "7921",
+                "rejectedVotesPercentage": "2.28",
+                "totalPolledCount": "347655",
+                "totalPolledPercentage": "80.85",
+                "totalElectorsCount": "429991"
+            }
+        ],
+        "postalResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 12186
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 4243
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 3816
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 372
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 311
+            }
+        ],
+        "postalVotes": [
+            {
+                "validVotesCount": "20928",
+                "validVotesPercentage": "97.74",
+                "rejectedVotesCount": "484",
+                "rejectedVotesPercentage": "2.26",
+                "totalPolledCount": "21412",
+                "totalPolledPercentage": "98.82",
+                "totalElectorsCount": "21667"
+            }
+        ],
+        "preferenceResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 2211
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 1909
+            }
+        ]
+    },
+    {
+        "districtName": "Nuwaraeliya",
+        "districtResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 201814
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 138619
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 105057
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 8821
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 19624
+            }
+        ],
+        "districtVotes": [
+            {
+                "validVotesCount": "473935",
+                "validVotesPercentage": "97",
+                "rejectedVotesCount": "14643",
+                "rejectedVotesPercentage": "3",
+                "totalPolledCount": "488578",
+                "totalPolledPercentage": "80.72",
+                "totalElectorsCount": "605292"
+            }
+        ],
+        "postalResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 8946
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 5087
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 4334
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 308
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 300
+            }
+        ],
+        "postalVotes": [
+            {
+                "validVotesCount": "18975",
+                "validVotesPercentage": "97.25",
+                "rejectedVotesCount": "536",
+                "rejectedVotesPercentage": "2.75",
+                "totalPolledCount": "19511",
+                "totalPolledPercentage": "98.91",
+                "totalElectorsCount": "19727"
+            }
+        ],
+        "preferenceResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 5440
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 3162
+            }
+        ]
+    },
+    {
+        "districtName": "Galle",
+        "districtResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 366721
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 189555
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 107336
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 24382
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 24826
+            }
+        ],
+        "districtVotes": [
+            {
+                "validVotesCount": "712820",
+                "validVotesPercentage": "98.27",
+                "rejectedVotesCount": "12541",
+                "rejectedVotesPercentage": "1.73",
+                "totalPolledCount": "725361",
+                "totalPolledPercentage": "80.31",
+                "totalElectorsCount": "903163"
+            }
+        ],
+        "postalResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 25892
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 7226
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 5338
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 863
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 821
+            }
+        ],
+        "postalVotes": [
+            {
+                "validVotesCount": "40140",
+                "validVotesPercentage": "97.74",
+                "rejectedVotesCount": "927",
+                "rejectedVotesPercentage": "2.26",
+                "totalPolledCount": "41067",
+                "totalPolledPercentage": "99.11",
+                "totalElectorsCount": "41437"
+            }
+        ],
+        "preferenceResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 5828
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 4714
+            }
+        ]
+    },
+    {
+        "districtName": "Matara",
+        "districtResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 287662
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 147462
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 79249
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 14962
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 18994
+            }
+        ],
+        "districtVotes": [
+            {
+                "validVotesCount": "548329",
+                "validVotesPercentage": "98.26",
+                "rejectedVotesCount": "9687",
+                "rejectedVotesPercentage": "1.74",
+                "totalPolledCount": "558016",
+                "totalPolledPercentage": "81.32",
+                "totalElectorsCount": "686175"
+            }
+        ],
+        "postalResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 19712
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 5088
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 4041
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 543
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 520
+            }
+        ],
+        "postalVotes": [
+            {
+                "validVotesCount": "29904",
+                "validVotesPercentage": "98.06",
+                "rejectedVotesCount": "593",
+                "rejectedVotesPercentage": "1.94",
+                "totalPolledCount": "30497",
+                "totalPolledPercentage": "98.75",
+                "totalElectorsCount": "30882"
+            }
+        ],
+        "preferenceResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 4505
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 3130
+            }
+        ]
+    },
+    {
+        "districtName": "Hambantota",
+        "districtResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 221913
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 131503
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 33217
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 26707
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 13722
+            }
+        ],
+        "districtVotes": [
+            {
+                "validVotesCount": "427062",
+                "validVotesPercentage": "98.51",
+                "rejectedVotesCount": "6443",
+                "rejectedVotesPercentage": "1.49",
+                "totalPolledCount": "433505",
+                "totalPolledPercentage": "83.22",
+                "totalElectorsCount": "520940"
+            }
+        ],
+        "postalResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 14482
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 3397
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 2502
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 819
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 349
+            }
+        ],
+        "postalVotes": [
+            {
+                "validVotesCount": "21549",
+                "validVotesPercentage": "97.96",
+                "rejectedVotesCount": "449",
+                "rejectedVotesPercentage": "2.04",
+                "totalPolledCount": "21998",
+                "totalPolledPercentage": "99.24",
+                "totalElectorsCount": "22167"
+            }
+        ],
+        "preferenceResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 3093
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 1763
+            }
+        ]
+    },
+    {
+        "districtName": "Jaffna",
+        "districtResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 121177
+            },
+            {
+                "candidateName": "Ariyanethiran Pakkiyaselvam",
+                "totalVotes": 116688
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 84558
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 27086
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 22179
+            }
+        ],
+        "districtVotes": [
+            {
+                "validVotesCount": "371688",
+                "validVotesPercentage": "93.61",
+                "rejectedVotesCount": "25353",
+                "rejectedVotesPercentage": "6.39",
+                "totalPolledCount": "397041",
+                "totalPolledPercentage": "66.93",
+                "totalElectorsCount": "593187"
+            }
+        ],
+        "postalResult": [
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 9277
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 7640
+            },
+            {
+                "candidateName": "Ariyanethiran Pakkiyaselvam",
+                "totalVotes": 4207
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 2250
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 687
+            }
+        ],
+        "postalVotes": [
+            {
+                "validVotesCount": "24061",
+                "validVotesPercentage": "95.67",
+                "rejectedVotesCount": "1089",
+                "rejectedVotesPercentage": "4.33",
+                "totalPolledCount": "25150",
+                "totalPolledPercentage": "98.9",
+                "totalElectorsCount": "25429"
+            }
+        ],
+        "preferenceResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 21511
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 8174
+            }
+        ]
+    },
+    {
+        "districtName": "Vanni",
+        "districtResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 95422
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 52573
+            },
+            {
+                "candidateName": "Ariyanethiran Pakkiyaselvam",
+                "totalVotes": 36377
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 21412
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 11485
+            }
+        ],
+        "districtVotes": [
+            {
+                "validVotesCount": "217269",
+                "validVotesPercentage": "95.86",
+                "rejectedVotesCount": "9381",
+                "rejectedVotesPercentage": "4.14",
+                "totalPolledCount": "226650",
+                "totalPolledPercentage": "74.05",
+                "totalElectorsCount": "306081"
+            }
+        ],
+        "postalResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 4899
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 4257
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 2092
+            },
+            {
+                "candidateName": "Ariyanethiran Pakkiyaselvam",
+                "totalVotes": 1160
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 356
+            }
+        ],
+        "postalVotes": [
+            {
+                "validVotesCount": "12764",
+                "validVotesPercentage": "97.38",
+                "rejectedVotesCount": "344",
+                "rejectedVotesPercentage": "2.62",
+                "totalPolledCount": "13108",
+                "totalPolledPercentage": "97.9",
+                "totalElectorsCount": "13389"
+            }
+        ],
+        "preferenceResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 6162
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 2390
+            }
+        ]
+    },
+    {
+        "districtName": "Batticaloa",
+        "districtResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 139110
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 91132
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 38832
+            },
+            {
+                "candidateName": "Ariyanethiran Pakkiyaselvam",
+                "totalVotes": 36905
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 12669
+            }
+        ],
+        "districtVotes": [
+            {
+                "validVotesCount": "318648",
+                "validVotesPercentage": "97.29",
+                "rejectedVotesCount": "8876",
+                "rejectedVotesPercentage": "2.71",
+                "totalPolledCount": "327524",
+                "totalPolledPercentage": "72.83",
+                "totalElectorsCount": "449686"
+            }
+        ],
+        "postalResult": [
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 5967
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 3205
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 2479
+            },
+            {
+                "candidateName": "Ariyanethiran Pakkiyaselvam",
+                "totalVotes": 901
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 152
+            }
+        ],
+        "postalVotes": [
+            {
+                "validVotesCount": "12704",
+                "validVotesPercentage": "98.18",
+                "rejectedVotesCount": "235",
+                "rejectedVotesPercentage": "1.82",
+                "totalPolledCount": "12939",
+                "totalPolledPercentage": "98.65",
+                "totalElectorsCount": "13116"
+            }
+        ],
+        "preferenceResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 7191
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 4467
+            }
+        ]
+    },
+    {
+        "districtName": "Digamadulla",
+        "districtResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 200384
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 108971
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 86589
+            },
+            {
+                "candidateName": "Ariyanethiran Pakkiyaselvam",
+                "totalVotes": 9985
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 17468
+            }
+        ],
+        "districtVotes": [
+            {
+                "validVotesCount": "423397",
+                "validVotesPercentage": "98.47",
+                "rejectedVotesCount": "6563",
+                "rejectedVotesPercentage": "1.53",
+                "totalPolledCount": "429960",
+                "totalPolledPercentage": "77.41",
+                "totalElectorsCount": "555432"
+            }
+        ],
+        "postalResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 11120
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 7368
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 6719
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 318
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 541
+            }
+        ],
+        "postalVotes": [
+            {
+                "validVotesCount": "26066",
+                "validVotesPercentage": "98.15",
+                "rejectedVotesCount": "491",
+                "rejectedVotesPercentage": "1.85",
+                "totalPolledCount": "26557",
+                "totalPolledPercentage": "99.17",
+                "totalElectorsCount": "26778"
+            }
+        ],
+        "preferenceResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 4814
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 3391
+            }
+        ]
+    },
+    {
+        "districtName": "Trincomalee",
+        "districtResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 120588
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 49886
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 40496
+            },
+            {
+                "candidateName": "Ariyanethiran Pakkiyaselvam",
+                "totalVotes": 18524
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 9967
+            }
+        ],
+        "districtVotes": [
+            {
+                "validVotesCount": "239461",
+                "validVotesPercentage": "97.63",
+                "rejectedVotesCount": "5821",
+                "rejectedVotesPercentage": "2.37",
+                "totalPolledCount": "245282",
+                "totalPolledPercentage": "77.64",
+                "totalElectorsCount": "315925"
+            }
+        ],
+        "postalResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 5480
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 4537
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 3630
+            },
+            {
+                "candidateName": "Ariyanethiran Pakkiyaselvam",
+                "totalVotes": 431
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 385
+            }
+        ],
+        "postalVotes": [
+            {
+                "validVotesCount": "14463",
+                "validVotesPercentage": "97.86",
+                "rejectedVotesCount": "317",
+                "rejectedVotesPercentage": "2.14",
+                "totalPolledCount": "14780",
+                "totalPolledPercentage": "98.77",
+                "totalElectorsCount": "14964"
+            }
+        ],
+        "preferenceResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 4119
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 1930
+            }
+        ]
+    },
+    {
+        "districtName": "Kurunegala",
+        "districtResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 544763
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 368290
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 146520
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 38730
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 31990
+            }
+        ],
+        "districtVotes": [
+            {
+                "validVotesCount": "1130293",
+                "validVotesPercentage": "98.32",
+                "rejectedVotesCount": "19337",
+                "rejectedVotesPercentage": "1.68",
+                "totalPolledCount": "1149630",
+                "totalPolledPercentage": "81.12",
+                "totalElectorsCount": "1417226"
+            }
+        ],
+        "postalResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 47126
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 13081
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 11998
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 1384
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 994
+            }
+        ],
+        "postalVotes": [
+            {
+                "validVotesCount": "74583",
+                "validVotesPercentage": "97.67",
+                "rejectedVotesCount": "1777",
+                "rejectedVotesPercentage": "2.33",
+                "totalPolledCount": "76360",
+                "totalPolledPercentage": "99.2",
+                "totalElectorsCount": "76977"
+            }
+        ],
+        "preferenceResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 7920
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 6408
+            }
+        ]
+    },
+    {
+        "districtName": "Puttalam",
+        "districtResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 207134
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 173382
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 60719
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 13285
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 15575
+            }
+        ],
+        "districtVotes": [
+            {
+                "validVotesCount": "470095",
+                "validVotesPercentage": "98.27",
+                "rejectedVotesCount": "8279",
+                "rejectedVotesPercentage": "1.73",
+                "totalPolledCount": "478374",
+                "totalPolledPercentage": "72.08",
+                "totalElectorsCount": "663673"
+            }
+        ],
+        "postalResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 8614
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 3044
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 2335
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 219
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 211
+            }
+        ],
+        "postalVotes": [
+            {
+                "validVotesCount": "14423",
+                "validVotesPercentage": "98.03",
+                "rejectedVotesCount": "290",
+                "rejectedVotesPercentage": "1.97",
+                "totalPolledCount": "14713",
+                "totalPolledPercentage": "98.3",
+                "totalElectorsCount": "14967"
+            }
+        ],
+        "preferenceResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 3103
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 2149
+            }
+        ]
+    },
+    {
+        "districtName": "Anuradhapura",
+        "districtResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 285944
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 202289
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 82152
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 15029
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 18272
+            }
+        ],
+        "districtVotes": [
+            {
+                "validVotesCount": "603686",
+                "validVotesPercentage": "98.41",
+                "rejectedVotesCount": "9782",
+                "rejectedVotesPercentage": "1.59",
+                "totalPolledCount": "613468",
+                "totalPolledPercentage": "82.69",
+                "totalElectorsCount": "741862"
+            }
+        ],
+        "postalResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 32750
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 10956
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 8218
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 783
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 777
+            }
+        ],
+        "postalVotes": [
+            {
+                "validVotesCount": "53484",
+                "validVotesPercentage": "98.16",
+                "rejectedVotesCount": "1000",
+                "rejectedVotesPercentage": "1.84",
+                "totalPolledCount": "54484",
+                "totalPolledPercentage": "98.72",
+                "totalElectorsCount": "55191"
+            }
+        ],
+        "preferenceResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 3537
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 2773
+            }
+        ]
+    },
+    {
+        "districtName": "Polonnaruwa",
+        "districtResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 130880
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 100730
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 36908
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 5594
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 9689
+            }
+        ],
+        "districtVotes": [
+            {
+                "validVotesCount": "283801",
+                "validVotesPercentage": "98.28",
+                "rejectedVotesCount": "4962",
+                "rejectedVotesPercentage": "1.72",
+                "totalPolledCount": "288763",
+                "totalPolledPercentage": "82.2",
+                "totalElectorsCount": "351302"
+            }
+        ],
+        "postalResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 11768
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 4120
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 2762
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 188
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 373
+            }
+        ],
+        "postalVotes": [
+            {
+                "validVotesCount": "19211",
+                "validVotesPercentage": "98.1",
+                "rejectedVotesCount": "372",
+                "rejectedVotesPercentage": "1.9",
+                "totalPolledCount": "19583",
+                "totalPolledPercentage": "98.62",
+                "totalElectorsCount": "19858"
+            }
+        ],
+        "preferenceResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 1641
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 1041
+            }
+        ]
+    },
+    {
+        "districtName": "Badulla",
+        "districtResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 219674
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 197283
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 115138
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 13869
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 22960
+            }
+        ],
+        "districtVotes": [
+            {
+                "validVotesCount": "568924",
+                "validVotesPercentage": "97.34",
+                "rejectedVotesCount": "15519",
+                "rejectedVotesPercentage": "2.66",
+                "totalPolledCount": "584443",
+                "totalPolledPercentage": "82.81",
+                "totalElectorsCount": "705772"
+            }
+        ],
+        "postalResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 23629
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 7967
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 7757
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 598
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 537
+            }
+        ],
+        "postalVotes": [
+            {
+                "validVotesCount": "40488",
+                "validVotesPercentage": "98.1",
+                "rejectedVotesCount": "783",
+                "rejectedVotesPercentage": "1.9",
+                "totalPolledCount": "41271",
+                "totalPolledPercentage": "98.12",
+                "totalElectorsCount": "42061"
+            }
+        ],
+        "preferenceResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 4760
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 3437
+            }
+        ]
+    },
+    {
+        "districtName": "Monaragala",
+        "districtResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 140269
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 134238
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 35728
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 12832
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 12015
+            }
+        ],
+        "districtVotes": [
+            {
+                "validVotesCount": "335082",
+                "validVotesPercentage": "98.05",
+                "rejectedVotesCount": "6671",
+                "rejectedVotesPercentage": "1.95",
+                "totalPolledCount": "341753",
+                "totalPolledPercentage": "85.62",
+                "totalElectorsCount": "399166"
+            }
+        ],
+        "postalResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 14050
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 5733
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 3401
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 470
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 335
+            }
+        ],
+        "postalVotes": [
+            {
+                "validVotesCount": "23989",
+                "validVotesPercentage": "97.74",
+                "rejectedVotesCount": "555",
+                "rejectedVotesPercentage": "2.26",
+                "totalPolledCount": "24544",
+                "totalPolledPercentage": "98.98",
+                "totalElectorsCount": "24797"
+            }
+        ],
+        "preferenceResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 1820
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 1395
+            }
+        ]
+    },
+    {
+        "districtName": "Ratnapura",
+        "districtResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 291708
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 257721
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 145038
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 20575
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 26858
+            }
+        ],
+        "districtVotes": [
+            {
+                "validVotesCount": "741900",
+                "validVotesPercentage": "98.01",
+                "rejectedVotesCount": "15070",
+                "rejectedVotesPercentage": "1.99",
+                "totalPolledCount": "756970",
+                "totalPolledPercentage": "81.95",
+                "totalElectorsCount": "923736"
+            }
+        ],
+        "postalResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 19185
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 6641
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 4675
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 500
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 538
+            }
+        ],
+        "postalVotes": [
+            {
+                "validVotesCount": "31539",
+                "validVotesPercentage": "98.01",
+                "rejectedVotesCount": "640",
+                "rejectedVotesPercentage": "1.99",
+                "totalPolledCount": "32179",
+                "totalPolledPercentage": "98.92",
+                "totalElectorsCount": "32530"
+            }
+        ],
+        "preferenceResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 6022
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 4888
+            }
+        ]
+    },
+    {
+        "districtName": "Kegalle",
+        "districtResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 247179
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 185930
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 106510
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 11722
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 18338
+            }
+        ],
+        "districtVotes": [
+            {
+                "validVotesCount": "569679",
+                "validVotesPercentage": "97.96",
+                "rejectedVotesCount": "11878",
+                "rejectedVotesPercentage": "2.04",
+                "totalPolledCount": "581557",
+                "totalPolledPercentage": "81.95",
+                "totalElectorsCount": "709622"
+            }
+        ],
+        "postalResult": [
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 20062
+            },
+            {
+                "candidateName": "Ranil Wickremesinghe",
+                "totalVotes": 7229
+            },
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 5604
+            },
+            {
+                "candidateName": "Namal Rajapaksa",
+                "totalVotes": 482
+            },
+            {
+                "candidateName": "Other",
+                "totalVotes": 527
+            }
+        ],
+        "postalVotes": [
+            {
+                "validVotesCount": "33904",
+                "validVotesPercentage": "97.43",
+                "rejectedVotesCount": "894",
+                "rejectedVotesPercentage": "2.57",
+                "totalPolledCount": "34798",
+                "totalPolledPercentage": "99.13",
+                "totalElectorsCount": "35103"
+            }
+        ],
+        "preferenceResult": [
+            {
+                "candidateName": "Sajith Premadasa",
+                "totalVotes": 4314
+            },
+            {
+                "candidateName": "Anura Kumara Dissanayake",
+                "totalVotes": 3869
+            }
+        ]
+    }
+]
